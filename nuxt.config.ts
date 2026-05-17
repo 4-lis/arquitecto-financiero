@@ -61,7 +61,16 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       crmApiUrl: '', // NUXT_PUBLIC_CRM_API_URL
-      crmApiKey: ''  // NUXT_PUBLIC_CRM_API_KEY
+      crmApiKey: '', // NUXT_PUBLIC_CRM_API_KEY
+      firebase: {
+        apiKey: process.env.NUXT_PUBLIC_FIREBASE_API_KEY || 'AIzaSyCQdDUe1-TMsDQGa0EYtnf8RFP9d16DszU',
+        authDomain: process.env.NUXT_PUBLIC_FIREBASE_AUTH_DOMAIN || 'hiporiver-prod.firebaseapp.com',
+        projectId: process.env.NUXT_PUBLIC_FIREBASE_PROJECT_ID || 'hiporiver-prod',
+        storageBucket: process.env.NUXT_PUBLIC_FIREBASE_STORAGE_BUCKET || 'hiporiver-prod.firebasestorage.app',
+        messagingSenderId: process.env.NUXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || '657595389334',
+        appId: process.env.NUXT_PUBLIC_FIREBASE_APP_ID || '1:657595389334:web:f63868ddd88e8d81d839b7',
+        measurementId: process.env.NUXT_PUBLIC_FIREBASE_MEASUREMENT_ID || 'G-QRTJ2DKBL2'
+      }
     }
   }
 })
