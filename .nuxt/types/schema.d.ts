@@ -16,7 +16,9 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
    },
   }
   interface SharedPublicRuntimeConfig {
+   crmApiUrl: string,
 
+   crmApiKey: string,
   }
 declare module '@nuxt/schema' {
   interface ModuleDependencies {

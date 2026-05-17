@@ -37,10 +37,11 @@
             <p class="text-neutral-300 text-sm font-light">Solicita tu diagnóstico financiero gratuito.</p>
           </div>
 
-          <form class="space-y-6" @submit.prevent>
+          <form class="space-y-6" @submit.prevent="handleSubmit">
             
             <div class="space-y-1 relative group">
               <input 
+                v-model="formData.name"
                 type="text" 
                 required
                 placeholder=" "
@@ -52,9 +53,36 @@
             </div>
 
             <div class="space-y-1 relative group">
+              <input 
+                v-model="formData.identification"
+                type="text" 
+                required
+                placeholder=" "
+                class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-blue-500 transition-colors"
+              />
+              <label class="absolute left-0 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-blue-400 peer-valid:-top-3.5 peer-valid:text-xs">
+                Cédula de Ciudadanía
+              </label>
+            </div>
+
+            <div class="space-y-1 relative group">
+              <input 
+                v-model="formData.email"
+                type="email" 
+                required
+                placeholder=" "
+                class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-blue-500 transition-colors"
+              />
+              <label class="absolute left-0 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-blue-400 peer-valid:-top-3.5 peer-valid:text-xs">
+                Email Corporativo/Personal
+              </label>
+            </div>
+
+            <div class="space-y-1 relative group">
               <div class="flex items-end">
                 <span class="pb-3 text-neutral-500 mr-2 text-sm">+57</span>
                 <input 
+                  v-model="formData.phone"
                   type="tel" 
                   required
                   placeholder=" "
@@ -68,7 +96,7 @@
 
             <div class="space-y-1 relative pt-4">
               <label class="text-xs font-semibold text-neutral-400 uppercase tracking-wide">Tipo de Crédito</label>
-              <select class="w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white focus:ring-0 focus:border-blue-500 transition-colors appearance-none cursor-pointer">
+              <select v-model="formData.observation" class="w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white focus:ring-0 focus:border-blue-500 transition-colors appearance-none cursor-pointer">
                 <option value="uvr" class="bg-neutral-900">Hipotecario UVR</option>
                 <option value="pesos" class="bg-neutral-900">Hipotecario Pesos</option>
                 <option value="leasing" class="bg-neutral-900">Leasing Habitacional</option>
@@ -77,10 +105,26 @@
 
             <button 
               type="submit"
-              class="w-full mt-8 bg-blue-600 text-white font-bold tracking-wide py-4 px-6 rounded-xl transition-all duration-300 transform active:scale-95 animate-pulse-glow flex justify-center items-center gap-2"
+              :disabled="loading"
+              class="w-full mt-8 bg-blue-600 text-white font-bold tracking-wide py-4 px-6 rounded-xl transition-all duration-300 transform active:scale-95 flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="{ 'animate-pulse-glow': !loading }"
             >
-              OBTENER MI DIAGNÓSTICO
+              <template v-if="loading">
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                PROCESANDO...
+              </template>
+              <template v-else>
+                OBTENER MI DIAGNÓSTICO
+              </template>
             </button>
+
+            <!-- Status Messages -->
+            <p v-if="status === 'success'" class="text-emerald-400 text-center text-sm font-medium animate-bounce mt-4">
+              ✅ ¡Registro exitoso! Pronto te contactaremos.
+            </p>
+            <p v-if="status === 'error'" class="text-red-400 text-center text-sm font-medium mt-4">
+              ❌ Hubo un error. Por favor intenta de nuevo.
+            </p>
             
           </form>
         </div>
@@ -91,16 +135,76 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, reactive } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const testimonyCol = ref(null)
 const formCol = ref(null)
 
+const loading = ref(false)
+const status = ref(null) // 'success' | 'error'
+
+const formData = reactive({
+  name: '',
+  identification: '',
+  email: '',
+  phone: '',
+  observation: 'uvr'
+})
+
+const config = useRuntimeConfig()
+
+const handleSubmit = async () => {
+  loading.value = true
+  status.value = null
+
+  try {
+    const response = await fetch(config.public.crmApiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-KEY': config.public.crmApiKey
+      },
+
+
+      body: JSON.stringify({
+        name: formData.name,
+        phone: formData.phone,
+        identification: formData.identification,
+        identification_type: 'CC',
+        email: formData.email,
+        observation: `Interesado en: Hipotecario ${formData.observation.toUpperCase()}`
+      })
+    })
+
+    const result = await response.json()
+    
+    if (result.success || response.ok) {
+      status.value = 'success'
+      // Reset form
+      Object.assign(formData, {
+        name: '',
+        identification: '',
+        email: '',
+        phone: '',
+        observation: 'uvr'
+      })
+    } else {
+      status.value = 'error'
+    }
+  } catch (error) {
+    console.error('CRM Submission Error:', error)
+    status.value = 'error'
+  } finally {
+    loading.value = false
+  }
+}
+
 let ctx
 
 onMounted(() => {
+
   if (!process.client) return
   gsap.registerPlugin(ScrollTrigger)
 

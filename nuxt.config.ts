@@ -57,4 +57,12 @@ export default defineNuxtConfig({
       include: ['gsap', 'gsap/ScrollTrigger', 'lenis'],
     },
   },
+
+  runtimeConfig: {
+    public: {
+      crmApiUrl: '', // NUXT_PUBLIC_CRM_API_URL
+      crmApiKey: ''  // NUXT_PUBLIC_CRM_API_KEY
+    }
+  }
 })
+

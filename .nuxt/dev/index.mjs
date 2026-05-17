@@ -696,7 +696,10 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {}
+  "public": {
+    "crmApiUrl": "",
+    "crmApiKey": ""
+  }
 };
 const envOptions = {
   prefix: "NITRO_",

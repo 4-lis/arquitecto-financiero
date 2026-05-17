@@ -11,11 +11,13 @@
       :cite="videoUrl" 
       :data-video-id="videoId" 
       style="max-width: 605px; min-width: 325px;"
+      allow="accelerometer; gyroscope; devicemotion"
     > 
       <section> 
         <slot />
       </section> 
     </blockquote>
+
   </div>
 </template>
 
