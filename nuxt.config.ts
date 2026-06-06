@@ -33,12 +33,33 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#0f172a' },
+        { name: 'theme-color', content: '#0a0a0a' },
         {
           name: 'description',
           content:
             'No dejes que tu casa sea del banco por 30 años. Inteligencia financiera para la construcción de tu libertad.',
         },
+        // ── Open Graph (WhatsApp, Facebook, LinkedIn) ──────────────────
+        { property: 'og:type', content: 'website' },
+        { property: 'og:locale', content: 'es_CO' },
+        { property: 'og:site_name', content: 'El Arquitecto Financiero' },
+        { property: 'og:title', content: 'El Arquitecto Financiero — Construye tu libertad' },
+        {
+          property: 'og:description',
+          content:
+            'No dejes que tu casa sea del banco por 30 años. Inteligencia financiera para optimizar tu hipoteca.',
+        },
+        { property: 'og:image', content: '/hero-bg.png' },
+        { property: 'og:image:alt', content: 'El Arquitecto Financiero' },
+        // ── Twitter / X Card ───────────────────────────────────────────
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'El Arquitecto Financiero — Construye tu libertad' },
+        {
+          name: 'twitter:description',
+          content:
+            'No dejes que tu casa sea del banco por 30 años. Inteligencia financiera para optimizar tu hipoteca.',
+        },
+        { name: 'twitter:image', content: '/hero-bg.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },

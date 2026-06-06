@@ -1,9 +1,9 @@
 <template>
-  <section class="relative py-24 md:py-32 bg-neutral-950 overflow-hidden">
+  <section id="diagnostico" class="relative py-24 md:py-32 bg-neutral-950 overflow-hidden scroll-mt-24">
     
     <!-- Abstract animated background for the glassmorphism -->
     <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
-      <div class="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-blue-600/30 blur-[150px] rounded-full animate-pulse" style="animation-duration: 8s;"></div>
+      <div class="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-primary/30 blur-[150px] rounded-full animate-pulse" style="animation-duration: 8s;"></div>
       <div class="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-emerald-500/20 blur-[150px] rounded-full animate-pulse" style="animation-duration: 10s; animation-delay: 2s;"></div>
     </div>
 
@@ -13,7 +13,7 @@
       <div ref="testimonyCol" class="lg:col-span-7 relative">
         <div class="absolute -top-16 -left-8 text-[15rem] text-neutral-800/40 font-serif leading-none pointer-events-none select-none">"</div>
         
-        <h2 class="testimony-text text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white mb-10 leading-[1.1] relative z-10 opacity-0 translate-y-8">
+        <h2 class="testimony-text font-serif font-normal text-5xl md:text-6xl lg:text-[4.5rem] text-white mb-10 leading-[1.1] relative z-10 opacity-0 translate-y-8">
           De una condena de <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400 line-through decoration-red-500/50">20 años</span> a la libertad en <span class="text-emerald-400">12</span>.
         </h2>
         
@@ -40,40 +40,48 @@
           <form class="space-y-6" @submit.prevent="handleSubmit">
             
             <div class="space-y-1 relative group">
-              <input 
+              <input
+                id="cw-name"
                 v-model="formData.name"
-                type="text" 
+                type="text"
                 required
+                autocomplete="name"
                 placeholder=" "
-                class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-blue-500 transition-colors"
+                class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-primary transition-colors"
               />
-              <label class="absolute left-0 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-blue-400 peer-valid:-top-3.5 peer-valid:text-xs">
+              <label for="cw-name" class="absolute left-0 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary-light peer-valid:-top-3.5 peer-valid:text-xs">
                 Nombre Completo
               </label>
             </div>
 
             <div class="space-y-1 relative group">
-              <input 
+              <input
+                id="cw-identification"
                 v-model="formData.identification"
-                type="text" 
+                type="text"
                 required
+                inputmode="numeric"
+                autocomplete="off"
                 placeholder=" "
-                class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-blue-500 transition-colors"
+                class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-primary transition-colors"
               />
-              <label class="absolute left-0 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-blue-400 peer-valid:-top-3.5 peer-valid:text-xs">
+              <label for="cw-identification" class="absolute left-0 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary-light peer-valid:-top-3.5 peer-valid:text-xs">
                 Cédula de Ciudadanía
               </label>
             </div>
 
             <div class="space-y-1 relative group">
-              <input 
+              <input
+                id="cw-email"
                 v-model="formData.email"
-                type="email" 
+                type="email"
                 required
+                autocomplete="email"
+                inputmode="email"
                 placeholder=" "
-                class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-blue-500 transition-colors"
+                class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-primary transition-colors"
               />
-              <label class="absolute left-0 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-blue-400 peer-valid:-top-3.5 peer-valid:text-xs">
+              <label for="cw-email" class="absolute left-0 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary-light peer-valid:-top-3.5 peer-valid:text-xs">
                 Email Corporativo/Personal
               </label>
             </div>
@@ -81,22 +89,25 @@
             <div class="space-y-1 relative group">
               <div class="flex items-end">
                 <span class="pb-3 text-neutral-500 mr-2 text-sm">+57</span>
-                <input 
+                <input
+                  id="cw-phone"
                   v-model="formData.phone"
-                  type="tel" 
+                  type="tel"
                   required
+                  autocomplete="tel-national"
+                  inputmode="tel"
                   placeholder=" "
-                  class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-blue-500 transition-colors"
+                  class="peer w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white placeholder-transparent focus:ring-0 focus:border-primary transition-colors"
                 />
-                <label class="absolute left-8 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-blue-400 peer-valid:-top-3.5 peer-valid:text-xs">
+                <label for="cw-phone" class="absolute left-8 top-3 text-neutral-400 text-sm font-medium transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary-light peer-valid:-top-3.5 peer-valid:text-xs">
                   WhatsApp
                 </label>
               </div>
             </div>
 
             <div class="space-y-1 relative pt-4">
-              <label class="text-xs font-semibold text-neutral-400 uppercase tracking-wide">Tipo de Crédito</label>
-              <select v-model="formData.observation" class="w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white focus:ring-0 focus:border-blue-500 transition-colors appearance-none cursor-pointer">
+              <label for="cw-tipo" class="text-xs font-semibold text-neutral-400 uppercase tracking-wide">Tipo de Crédito</label>
+              <select id="cw-tipo" v-model="formData.observation" class="w-full bg-transparent border-0 border-b-2 border-neutral-600 px-0 py-3 text-white focus:ring-0 focus:border-primary transition-colors appearance-none cursor-pointer">
                 <option value="uvr" class="bg-neutral-900">Hipotecario UVR</option>
                 <option value="pesos" class="bg-neutral-900">Hipotecario Pesos</option>
                 <option value="leasing" class="bg-neutral-900">Leasing Habitacional</option>
@@ -106,7 +117,7 @@
             <button 
               type="submit"
               :disabled="loading"
-              class="w-full mt-8 bg-blue-600 text-white font-bold tracking-wide py-4 px-6 rounded-xl transition-all duration-300 transform active:scale-95 flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              class="w-full mt-8 bg-primary hover:bg-primary-hover text-white font-bold tracking-wide py-4 px-6 rounded-xl transition-all duration-300 transform active:scale-95 flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               :class="{ 'animate-pulse-glow': !loading }"
             >
               <template v-if="loading">
@@ -246,9 +257,9 @@ onUnmounted(() => {
 
 <style scoped>
 @keyframes pulse-glow {
-  0% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); }
-  50% { box-shadow: 0 0 35px rgba(37, 99, 235, 0.9), inset 0 0 10px rgba(255,255,255,0.2); }
-  100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); }
+  0% { box-shadow: 0 0 15px rgba(99, 91, 255, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(99, 91, 255, 0.9), inset 0 0 10px rgba(255,255,255,0.2); }
+  100% { box-shadow: 0 0 15px rgba(99, 91, 255, 0.4); }
 }
 
 .animate-pulse-glow {

@@ -2,8 +2,8 @@
   <div 
     class="absolute inset-0 z-50 flex items-center justify-center pointer-events-none"
   >
-    <!-- Cinematic Background Layer -->
-    <div class="absolute inset-0 z-[-1] overflow-hidden">
+    <!-- Cinematic Background Layer (image + dark veils — faded out as the hero reveals) -->
+    <div class="hook-overlay absolute inset-0 z-[-1] overflow-hidden">
       <img 
         src="/hero-bg.png" 
         class="hook-bg w-full h-full object-cover opacity-40 scale-110"
@@ -52,7 +52,7 @@ const props = defineProps({
 const currentValue = ref(props.startValue)
 
 const formattedValue = computed(() => {
-  return Math.floor(currentValue.value).toLocaleString('en-US')
+  return Math.floor(currentValue.value).toLocaleString('es-CO')
 })
 
 onMounted(() => {

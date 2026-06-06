@@ -4,9 +4,9 @@
   >
     <!-- Text Column -->
     <div class="w-full lg:w-1/2 flex flex-col items-start z-20">
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
+      <h1 class="font-serif font-normal text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight mb-6">
         <div class="overflow-hidden pb-2"><div class="hero-line translate-y-full">No dejes que tu casa</div></div>
-        <div class="overflow-hidden pb-2"><div class="hero-line translate-y-full text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">sea del banco</div></div>
+        <div class="overflow-hidden pb-2"><div class="hero-line translate-y-full text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-cyan-300">sea del banco</div></div>
         <div class="overflow-hidden pb-2"><div class="hero-line translate-y-full">por 30 años.</div></div>
       </h1>
       

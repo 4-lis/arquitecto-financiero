@@ -2,8 +2,8 @@
   <footer class="bg-neutral-950 py-16 border-t border-neutral-900">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center justify-center">
       
-      <p class="text-2xl md:text-3xl lg:text-4xl text-white font-medium mb-12 text-center tracking-tight">
-        Si no está funcionando, <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">hay que reinventarlo.</span>
+      <p class="font-serif font-normal text-2xl md:text-3xl lg:text-4xl text-white mb-12 text-center tracking-tight">
+        Si no está funcionando, <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-cyan-400">hay que reinventarlo.</span>
       </p>
 
       <div class="flex items-center gap-8 mb-12">
@@ -15,7 +15,8 @@
           <span class="sr-only">TikTok</span>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.04.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.12-3.44-3.17-3.41-5.46.03-1.07.28-2.13.76-3.09 1.05-2.07 3.09-3.49 5.37-3.7 1.09-.1 2.2.04 3.23.41v4.06c-.84-.5-1.92-.61-2.85-.35-.91.24-1.63.88-2.03 1.73-.39.81-.46 1.77-.18 2.62.28.84.88 1.52 1.66 1.91.81.4 1.76.47 2.62.19.85-.28 1.53-.88 1.93-1.69.4-.81.47-1.76.19-2.61l.01-15.34z"/></svg>
         </a>
-        <a href="#" class="text-neutral-500 hover:text-blue-500 hover:-translate-y-1 transition-all duration-300">
+        <!-- TODO: reemplazar '#' por la URL real de LinkedIn y restaurar el <a>. Deshabilitado para evitar enlace muerto. -->
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-disabled="true" class="text-neutral-500 hover:text-blue-500 hover:-translate-y-1 transition-all duration-300">
           <span class="sr-only">LinkedIn</span>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>

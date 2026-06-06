@@ -1,5 +1,5 @@
 <template>
-  <section ref="heroContainer" class="relative w-full bg-neutral-950" style="height: 300vh;">
+  <section ref="heroContainer" class="relative w-full bg-neutral-950" style="height: 200vh;">
     <!-- Sticky Container -->
     <div class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
 
@@ -10,7 +10,7 @@
       <HeroContent ref="heroContent" />
 
       <!-- Background glow that fades in -->
-      <div ref="bgGlow" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none opacity-0"></div>
+      <div ref="bgGlow" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 blur-[150px] rounded-full pointer-events-none opacity-0"></div>
 
     </div>
   </section>
@@ -35,6 +35,20 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
+
+    // Respect users who prefer reduced motion: skip the scroll-jacking zoom
+    // and present the hero content statically so the headline + CTA are visible.
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) {
+      heroContainer.value.style.height = '100vh'
+      gsap.set(hookCounter.value?.$el, { autoAlpha: 0 })
+      gsap.set(heroContent.value?.$el, { autoAlpha: 1 })
+      gsap.set('.hero-line', { y: 0 })
+      gsap.set(['.hero-sub', '.hero-cta', '.floating-video'], { opacity: 1, y: 0 })
+      gsap.set(bgGlow.value, { autoAlpha: 1 })
+      return
+    }
+
     // 1. The Master Scroll Timeline (Zoom-in Hook)
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -55,14 +69,21 @@ onMounted(() => {
       ease: 'power4.in'
     }, 0)
 
-    // Dolly Zoom effect: Background scales DOWN while number scales UP
+    // Dolly Zoom effect: background image scales DOWN while the number scales UP
     tl.to('.hook-bg', {
       scale: 1,
-      autoAlpha: 0,
       filter: 'blur(10px)',
       duration: 3,
       ease: 'power2.inOut'
     }, 0)
+
+    // Fade out the ENTIRE backdrop layer (image + both dark veils), otherwise the
+    // 60% black veil lingers at z-50 over the hero and the headline reads hazy.
+    tl.to('.hook-overlay', {
+      autoAlpha: 0,
+      duration: 2.2,
+      ease: 'power2.inOut'
+    }, 0.3)
     
     tl.to('.scroll-hint', {
       autoAlpha: 0,
@@ -102,6 +123,10 @@ onMounted(() => {
       duration: 1,
       ease: 'power3.out'
     }, 2.5)
+
+    // Hold the fully-revealed hero on screen so the headline + CTA get
+    // real resting time before the section releases into the next one.
+    tl.to({}, { duration: 2 })
 
     // 2. High-Fidelity Spatial Drift Animation for the floating video
     // This creates a much more premium "weightless" feel

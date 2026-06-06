@@ -1,45 +1,45 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, createError, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, createError, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import crypto$1 from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/@vue/shared/dist/shared.cjs.js';
-import viteNodeEntry_mjs from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/nuxt/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
-import { viteNodeFetch } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/nuxt/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, encodePath, joinRelativeURL } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/vue/server-renderer/index.mjs';
-import destr, { destr as destr$1 } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/destr/dist/index.mjs';
-import { createHooks } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/@nuxt/nitro-server/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, defineDriver, prefixStorage } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/unstorage/drivers/fs.mjs';
-import fsDriver from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/unstorage/drivers/fs-lite.mjs';
-import lruCache from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/unstorage/drivers/lru-cache.mjs';
-import { digest } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/radix3/dist/index.mjs';
+import { escapeHtml } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/@vue+shared@3.5.34/node_modules/@vue/shared/dist/shared.cjs.js';
+import viteNodeEntry_mjs from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/@nuxt+vite-builder@3.21.5_@types+node@25.8.0_magicast@0.5.3_nuxt@3.21.5_@parcel+watcher@2.5.6_phuvjfhm37sf6v2vxiaaauj75i/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
+import { viteNodeFetch } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/@nuxt+vite-builder@3.21.5_@types+node@25.8.0_magicast@0.5.3_nuxt@3.21.5_@parcel+watcher@2.5.6_phuvjfhm37sf6v2vxiaaauj75i/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/vue-bundle-renderer@2.2.0/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, encodePath, joinRelativeURL } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/ufo@1.6.4/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/vue@3.5.34/node_modules/vue/server-renderer/index.mjs';
+import destr, { destr as destr$1 } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/destr@2.0.5/node_modules/destr/dist/index.mjs';
+import { createHooks } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/ofetch@1.5.1/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/node-mock-http@1.0.4/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, defineDriver, prefixStorage } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/unstorage@1.17.5_db0@0.3.4_ioredis@5.10.1/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/unstorage@1.17.5_db0@0.3.4_ioredis@5.10.1/node_modules/unstorage/drivers/fs.mjs';
+import fsDriver from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/unstorage@1.17.5_db0@0.3.4_ioredis@5.10.1/node_modules/unstorage/drivers/fs-lite.mjs';
+import lruCache from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/unstorage@1.17.5_db0@0.3.4_ioredis@5.10.1/node_modules/unstorage/drivers/lru-cache.mjs';
+import { digest } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/ohash@2.0.11/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/defu@6.1.7/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/unctx@2.5.0/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/@nuxt/nitro-server/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/consola@3.4.2/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/youch-core@0.3.3/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/youch@4.1.1/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/errx/dist/index.js';
-import { isVNode, isRef, toValue } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/vue/index.mjs';
-import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/nuxt/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
+import { stringify, uneval } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/devalue@5.8.1/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/errx@0.1.0/node_modules/errx/dist/index.js';
+import { isVNode, isRef, toValue } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/vue@3.5.34/node_modules/vue/index.mjs';
+import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/@nuxt+vite-builder@3.21.5_@types+node@25.8.0_magicast@0.5.3_nuxt@3.21.5_@parcel+watcher@2.5.6_phuvjfhm37sf6v2vxiaaauj75i/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/pathe/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/unhead/dist/server.mjs';
-import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/unhead/dist/plugins.mjs';
-import { walkResolver } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/pathe@2.0.3/node_modules/pathe/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/unhead@2.1.15/node_modules/unhead/dist/server.mjs';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/unhead@2.1.15/node_modules/unhead/dist/plugins.mjs';
+import { walkResolver } from 'file:///Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/unhead@2.1.15/node_modules/unhead/dist/utils.mjs';
 
 const serverAssets = [{"baseName":"server","dir":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/app/server/assets"}];
 
@@ -62,7 +62,7 @@ function normalizeFsKey (item) {
   return `${prefix}-${hash}`
 }
 
-const _47Users_47alejandrolissanchez_47Documents_47Development_47Apps_47Simuladores_47landing_45rrivera_47rrivera_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js = defineDriver(
+const _47Users_47alejandrolissanchez_47Documents_47Development_47Apps_47Simuladores_47landing_45rrivera_47rrivera_47node_modules_47_46pnpm_47_64nuxt_43nitro_45server_643_4621_465_db0_640_463_464_ioredis_645_4610_461_magicast_640_465_463_nuxt_643_4621_465__64parcel_43watcher_kdmdr2274q4tv63xgsacaas56e_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js = defineDriver(
   /**
    * @param {{ base?: string }} opts
    */
@@ -94,7 +94,7 @@ storage.mount('/assets', assets$1);
 
 storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera","watchOptions":{"ignored":[null]}}));
 storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/app/server","watchOptions":{"ignored":[null]}}));
-storage.mount('cache:nuxt:payload', _47Users_47alejandrolissanchez_47Documents_47Development_47Apps_47Simuladores_47landing_45rrivera_47rrivera_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js({"driver":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js","base":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/.nuxt/cache/nuxt/payload"}));
+storage.mount('cache:nuxt:payload', _47Users_47alejandrolissanchez_47Documents_47Development_47Apps_47Simuladores_47landing_45rrivera_47rrivera_47node_modules_47_46pnpm_47_64nuxt_43nitro_45server_643_4621_465_db0_640_463_464_ioredis_645_4610_461_magicast_640_465_463_nuxt_643_4621_465__64parcel_43watcher_kdmdr2274q4tv63xgsacaas56e_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js({"driver":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/node_modules/.pnpm/@nuxt+nitro-server@3.21.5_db0@0.3.4_ioredis@5.10.1_magicast@0.5.3_nuxt@3.21.5_@parcel+watcher_kdmdr2274q4tv63xgsacaas56e/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js","base":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/.nuxt/cache/nuxt/payload"}));
 storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/.nuxt"}));
 storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/.nuxt/cache"}));
 storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera/.data/kv"}));
@@ -698,7 +698,16 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "crmApiUrl": "",
-    "crmApiKey": ""
+    "crmApiKey": "",
+    "firebase": {
+      "apiKey": "AIzaSyCQdDUe1-TMsDQGa0EYtnf8RFP9d16DszU",
+      "authDomain": "hiporiver-prod.firebaseapp.com",
+      "projectId": "hiporiver-prod",
+      "storageBucket": "hiporiver-prod.firebasestorage.app",
+      "messagingSenderId": "657595389334",
+      "appId": "1:657595389334:web:f63868ddd88e8d81d839b7",
+      "measurementId": "G-QRTJ2DKBL2"
+    }
   }
 };
 const envOptions = {
@@ -1904,7 +1913,11 @@ const errorHandler$0 = (async function errorhandler(error, event, { defaultHandl
 	
 	const reqHeaders = getRequestHeaders(event);
 	
-	const isRenderingError = event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"];
+	const isRenderingError = event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"] || !!event.context.nuxt?.["~rendering-error"];
+	if (!isRenderingError) {
+		event.context.nuxt ||= {};
+		event.context.nuxt["~rendering-error"] = true;
+	}
 	
 	const res = isRenderingError ? null : await useNitroApp().localFetch(withQuery(joinURL(useRuntimeConfig(event).app.baseURL, "/__nuxt_error"), errorObject), {
 		headers: {
@@ -2086,7 +2099,7 @@ async function errorHandler(error, event) {
 
 const rootDir = "/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"theme-color","content":"#0f172a"},{"name":"description","content":"No dejes que tu casa sea del banco por 30 años. Inteligencia financiera para la construcción de tu libertad."}],"link":[{"rel":"icon","type":"image/svg+xml","href":"/favicon.svg"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"es"},"title":"El Arquitecto Financiero — Construye tu libertad"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"theme-color","content":"#0a0a0a"},{"name":"description","content":"No dejes que tu casa sea del banco por 30 años. Inteligencia financiera para la construcción de tu libertad."},{"property":"og:type","content":"website"},{"property":"og:locale","content":"es_CO"},{"property":"og:site_name","content":"El Arquitecto Financiero"},{"property":"og:title","content":"El Arquitecto Financiero — Construye tu libertad"},{"property":"og:description","content":"No dejes que tu casa sea del banco por 30 años. Inteligencia financiera para optimizar tu hipoteca."},{"property":"og:image","content":"/hero-bg.png"},{"property":"og:image:alt","content":"El Arquitecto Financiero"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:title","content":"El Arquitecto Financiero — Construye tu libertad"},{"name":"twitter:description","content":"No dejes que tu casa sea del banco por 30 años. Inteligencia financiera para optimizar tu hipoteca."},{"name":"twitter:image","content":"/hero-bg.png"}],"link":[{"rel":"icon","type":"image/svg+xml","href":"/favicon.svg"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"es"},"title":"El Arquitecto Financiero — Construye tu libertad"};
 
 const appRootTag = "div";
 
@@ -2110,7 +2123,7 @@ const asyncContext = getContext("nuxt-dev", {
 	asyncContext: true,
 	AsyncLocalStorage
 });
-const _qzmsoL_WYRh0EcPgcKJOxZhQ6DEFULX7TWdcAToZbU = (nitroApp) => {
+const _YAjVu66NsJodcOTcGA7m2K92gjLJ0vvoE1B0ANUJ9cU = (nitroApp) => {
 	const handler = nitroApp.h3App.handler;
 	nitroApp.h3App.handler = (event) => {
 		return asyncContext.callAsync({
@@ -2144,7 +2157,9 @@ const _qzmsoL_WYRh0EcPgcKJOxZhQ6DEFULX7TWdcAToZbU = (nitroApp) => {
 		}
 		const log = {
 			..._log,
+			
 			filename,
+			
 			stack: trace
 		};
 		
@@ -2184,7 +2199,7 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _qzmsoL_WYRh0EcPgcKJOxZhQ6DEFULX7TWdcAToZbU,
+  _YAjVu66NsJodcOTcGA7m2K92gjLJ0vvoE1B0ANUJ9cU,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
@@ -2213,7 +2228,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _k8tREn = eventHandler((event) => {
+const _h2HCuD = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -2658,13 +2673,13 @@ async function getIslandContext(event) {
 	};
 }
 
-const _lazy_bK5CI5 = () => Promise.resolve().then(function () { return renderer; });
+const _lazy_BmEs5T = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
-  { route: '', handler: _k8tREn, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_bK5CI5, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _h2HCuD, lazy: false, middleware: true, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_BmEs5T, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_bK5CI5, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_BmEs5T, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -3073,8 +3088,7 @@ const APP_TELEPORT_OPEN_TAG = HAS_APP_TELEPORTS ? `<${appTeleportTag}${propsToSt
 const APP_TELEPORT_CLOSE_TAG = HAS_APP_TELEPORTS ? `</${appTeleportTag}>` : "";
 const PAYLOAD_URL_RE = /^[^?]*\/_payload.json(?:\?.*)?$/ ;
 const PAYLOAD_FILENAME = "_payload.json" ;
-const handler = defineRenderHandler(async (event) => {
-	const nitroApp = useNitroApp();
+const handler = defineRenderHandler((event) => {
 	
 	const ssrError = event.path.startsWith("/__nuxt_error") ? getQuery$1(event) : null;
 	if (ssrError && !("__unenv__" in event.node.req)) {
@@ -3084,6 +3098,10 @@ const handler = defineRenderHandler(async (event) => {
 			message: "Page Not Found: /__nuxt_error"
 		});
 	}
+	return renderRoute(event, ssrError);
+});
+async function renderRoute(event, ssrError) {
+	const nitroApp = useNitroApp();
 	
 	const ssrContext = createSSRContext(event);
 	
@@ -3213,6 +3231,7 @@ const handler = defineRenderHandler(async (event) => {
 			data: ssrContext.payload
 		})  }, {
 			...headEntryOptions,
+			
 			tagPosition: "bodyClose",
 			tagPriority: "high"
 		});
@@ -3224,6 +3243,8 @@ const handler = defineRenderHandler(async (event) => {
 			type: resource.module ? "module" : null,
 			src: renderer.rendererContext.buildAssetsURL(resource.file),
 			defer: resource.module ? null : true,
+			
+			
 			tagPosition,
 			crossorigin: ""
 		})) }, headEntryOptions);
@@ -3250,7 +3271,7 @@ const handler = defineRenderHandler(async (event) => {
 			"x-powered-by": "Nuxt"
 		}
 	};
-});
+}
 function normalizeChunks(chunks) {
 	const result = [];
 	for (const _chunk of chunks) {

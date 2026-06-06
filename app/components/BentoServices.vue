@@ -1,9 +1,9 @@
 <template>
-  <section ref="bentoSection" class="py-32 px-6 lg:px-12 bg-neutral-50 transition-colors duration-1000 ease-in-out">
+  <section id="servicios" ref="bentoSection" class="py-32 px-6 lg:px-12 bg-neutral-50 transition-colors duration-1000 ease-in-out scroll-mt-20">
     <div class="max-w-7xl mx-auto w-full">
       
       <div class="text-center mb-16">
-        <h2 class="bento-title text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 opacity-0 translate-y-6">Servicios Integrales</h2>
+        <h2 class="bento-title font-serif font-normal text-4xl md:text-5xl lg:text-6xl text-neutral-900 mb-6 opacity-0 translate-y-6">Servicios Integrales</h2>
         <p class="bento-title text-neutral-600 max-w-2xl mx-auto text-xl opacity-0 translate-y-6">Soluciones de alto nivel estructuradas con rigor matemático.</p>
       </div>
 
@@ -11,10 +11,10 @@
       <div class="bento-grid grid grid-cols-1 md:grid-cols-3 gap-6 group">
         
         <!-- Main Highlight Card -->
-        <div class="bento-card md:col-span-2 md:row-span-2 relative rounded-3xl bg-neutral-900 border border-neutral-800 p-8 md:p-12 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-blue-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] cursor-pointer opacity-0 translate-y-12 group-hover:opacity-50 hover:!opacity-100">
+        <div class="bento-card md:col-span-2 md:row-span-2 relative rounded-3xl bg-neutral-900 border border-neutral-800 p-8 md:p-12 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-[0_0_40px_rgba(99,91,255,0.35)] cursor-pointer opacity-0 translate-y-12 group-hover:opacity-50 hover:!opacity-100">
           <div class="relative z-10 flex flex-col h-full justify-between">
-            <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-blue-400"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 border border-primary/20">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-primary-light"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             </div>
             <div>
               <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Estrategia Hipotecaria</h3>
@@ -23,7 +23,7 @@
               </p>
             </div>
           </div>
-          <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+          <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
         </div>
 
         <!-- Secondary Card 1 -->

@@ -1,9 +1,9 @@
 {
-  "_hash": "HvMgjGwbZxWCW2PNCkfYiVVVyw7nzDHLQBGpGf2-K8E",
+  "_hash": "GZp3yxtI0kD5brFOPPQyt4t63TuSND-G0WCKOydygYo",
   "project": {
     "rootDir": "/Users/alejandrolissanchez/Documents/Development/Apps/Simuladores/landing-rrivera/rrivera"
   },
   "versions": {
-    "nuxt": "3.21.4"
+    "nuxt": "3.21.5"
   }
 }
