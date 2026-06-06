@@ -8,31 +8,81 @@ on:
     branches:
       - main
 
+# Permisos necesarios para Workload Identity Federation (OIDC)
+permissions:
+  contents: read
+  id-token: write      # Requerido para solicitar el JWT de OIDC
+  pull-requests: write # Para comentarios de preview en PRs
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 9
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - run: pnpm run build
+      - name: Build (Nuxt static)
+        run: pnpm run build
         env:
           NUXT_PUBLIC_CRM_API_URL: ${{ secrets.NUXT_PUBLIC_CRM_API_URL }}
           NUXT_PUBLIC_CRM_API_KEY: ${{ secrets.NUXT_PUBLIC_CRM_API_KEY }}
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      # ── Autenticación sin claves JSON ─────────────────────────────────
+      # Usa Workload Identity Federation: GitHub OIDC <-> Google Cloud IAM
+      # No requiere crear ni rotar claves de cuenta de servicio.
+      - name: Authenticate to Google Cloud (WIF)
+        id: auth
+        uses: google-github-actions/auth@v2
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'live' }}
-          projectId: hiporiver-prod
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
+
+      # ── Despliegue a Firebase Hosting ─────────────────────────────────
+      - name: Deploy to Firebase Hosting (live)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          npx -y firebase-tools@latest hosting:channel:deploy live \
+            --project hiporiver-prod \
+            --non-interactive
+
+      - name: Deploy Preview Channel (PR)
+        if: github.event_name == 'pull_request'
+        id: preview
+        run: |
+          CHANNEL_ID="pr-${{ github.event.pull_request.number }}"
+          OUTPUT=$(npx -y firebase-tools@latest hosting:channel:deploy "$CHANNEL_ID" \
+            --project hiporiver-prod \
+            --non-interactive 2>&1)
+          echo "$OUTPUT"
+          # Extraer URL del preview para comentar en el PR
+          PREVIEW_URL=$(echo "$OUTPUT" | grep -oP 'https://[^\s]+\.web\.app[^\s]*' | head -1)
+          echo "preview_url=$PREVIEW_URL" >> $GITHUB_OUTPUT
+
+      - name: Comment Preview URL on PR
+        if: github.event_name == 'pull_request' && steps.preview.outputs.preview_url != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🔥 **Firebase Preview desplegado:**\n${process.env.PREVIEW_URL}`
+            })
+        env:
+          PREVIEW_URL: ${{ steps.preview.outputs.preview_url }}
