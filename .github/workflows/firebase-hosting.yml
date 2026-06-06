@@ -53,10 +53,12 @@ jobs:
           service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
 
       # ── Despliegue a Firebase Hosting ─────────────────────────────────
-      - name: Deploy to Firebase Hosting (live)
+      # Para producción (push a main) se usa `firebase deploy --only hosting`
+      # Para PRs se usa `hosting:channel:deploy` que crea un canal de preview
+      - name: Deploy to Firebase Hosting (producción)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          npx -y firebase-tools@latest hosting:channel:deploy live \
+          npx -y firebase-tools@latest deploy --only hosting \
             --project hiporiver-prod \
             --non-interactive
 
