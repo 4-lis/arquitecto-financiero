@@ -62,7 +62,8 @@ export default defineNuxtConfig({
         { name: 'twitter:image', content: '/hero-bg.png' },
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'apple-touch-icon', href: '/favicon.png' },
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },

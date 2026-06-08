@@ -1,7 +1,14 @@
 <template>
   <footer class="bg-neutral-950 py-16 border-t border-neutral-900">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center justify-center">
-      
+
+      <!-- Brand Logo -->
+      <img
+        src="/image/logo-light.png"
+        alt="El Arquitecto Financiero"
+        class="h-20 w-auto mb-10 opacity-90"
+      >
+
       <p class="font-serif font-normal text-2xl md:text-3xl lg:text-4xl text-white mb-12 text-center tracking-tight">
         Si no está funcionando, <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-cyan-400">hay que reinventarlo.</span>
       </p>

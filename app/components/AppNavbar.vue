@@ -16,13 +16,12 @@
         <div class="pointer-events-none absolute inset-x-8 top-px h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
 
         <!-- Logo -->
-        <NuxtLink to="/" class="relative z-10 flex items-center gap-2.5 group">
-          <div class="relative w-8 h-8 flex items-center justify-center bg-gradient-to-br from-primary to-cyan-400 rounded-lg shadow-glow-primary group-hover:shadow-glow-primary-lg transition-all duration-300">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 22h20" />
-              <path d="M12 2L2 12h3v8h4v-6h6v6h4v-8h3L12 2z" />
-            </svg>
-          </div>
+        <NuxtLink to="/" class="relative z-10 flex items-center gap-2.5 group" aria-label="El Arquitecto Financiero — inicio">
+          <img
+            src="/image/logo-mark-light.png"
+            alt="El Arquitecto Financiero"
+            class="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
+          >
           <div class="hidden sm:flex flex-col leading-none">
             <span class="text-[9px] font-bold tracking-[0.2em] text-cyan-400 uppercase">El Arquitecto</span>
             <span class="text-[13px] font-semibold tracking-widest text-white uppercase">Financiero</span>
