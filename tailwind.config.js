@@ -19,14 +19,14 @@ export default {
       },
       colors: {
         primary: {
-          DEFAULT: '#635BFF',
-          hover:   '#524CC2',
-          light:   '#8B7FFF',
+          DEFAULT: '#1565C0',
+          hover:   '#1976D2',
+          light:   '#42A5F5',
         },
         mercury: {
-          dark:   '#0A0A0A',
-          panel:  '#111111',
-          border: '#1f1f1f',
+          dark:   '#050D1A',
+          panel:  '#0A1628',
+          border: '#1a2a3a',
           cream:  '#F5F3EF',
           sage:   '#E8E6E1',
           text:   '#F5F5F5',
@@ -46,13 +46,13 @@ export default {
       },
       backgroundImage: {
         'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E\")",
-        // Brand gradient — indigo (#635BFF) → cyan (#22D3EE)
-        'brand-gradient': 'linear-gradient(135deg, #635BFF 0%, #22D3EE 100%)',
+        // Brand gradient — blue (#1565C0) → light blue (#42A5F5)
+        'brand-gradient': 'linear-gradient(135deg, #1565C0 0%, #42A5F5 100%)',
       },
       boxShadow: {
         // Brand "glow" used on primary CTAs and accent surfaces
-        'glow-primary': '0 0 30px rgba(99, 91, 255, 0.45)',
-        'glow-primary-lg': '0 0 45px rgba(99, 91, 255, 0.7)',
+        'glow-primary': '0 0 30px rgba(21, 101, 192, 0.45)',
+        'glow-primary-lg': '0 0 45px rgba(21, 101, 192, 0.7)',
       },
       keyframes: {
         'fade-up': {

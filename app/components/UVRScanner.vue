@@ -7,7 +7,7 @@
         ref="statementPhase"
         class="absolute inset-0 flex items-center justify-center pointer-events-none"
       >
-        <div class="relative w-[90%] max-w-2xl bg-neutral-900 border border-neutral-800 rounded-2xl p-8 md:p-12 shadow-2xl overflow-hidden">
+        <div class="relative w-[90%] max-w-2xl bg-[#0A1628] border border-[#1a2a3a] rounded-2xl p-8 md:p-12 shadow-2xl overflow-hidden">
           
           <!-- Mock Statement Data (Faded/Generic) -->
           <div class="space-y-4 opacity-30 blur-[2px]">
@@ -34,8 +34,8 @@
           <div class="absolute inset-0 flex flex-col items-center justify-center px-8 text-center mix-blend-color-dodge">
             <div ref="revealTextWrapper" class="relative" style="clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);">
               <h2 class="font-serif font-normal text-3xl md:text-4xl text-white mb-4 drop-shadow-md">¿Tu deuda en UVR sube aunque pagues puntualmente?</h2>
-              <p class="text-lg text-emerald-400 font-medium drop-shadow-md">
-                Muchos colombianos ven con frustración cómo su saldo en pesos aumenta cada mes, alimentando al banco.
+              <p class="text-lg text-cyan-400 font-medium drop-shadow-md">
+                Cada mes depositas tu cuota puntualmente — y tu saldo en pesos sigue creciendo. Estás financiando al banco, no a tu vivienda.
               </p>
             </div>
           </div>
@@ -43,10 +43,10 @@
           <!-- The Scanner Line -->
           <div 
             ref="scannerLine" 
-            class="absolute top-0 left-0 w-full h-[2px] bg-emerald-400 shadow-[0_0_20px_4px_rgba(52,211,153,0.8)] -translate-y-full"
+            class="absolute top-0 left-0 w-full h-[2px] bg-[#42A5F5] shadow-[0_0_20px_4px_rgba(66,165,245,0.8)] -translate-y-full"
           >
             <!-- Scanner gradient fade -->
-            <div class="absolute bottom-full left-0 w-full h-32 bg-gradient-to-t from-emerald-500/20 to-transparent"></div>
+            <div class="absolute bottom-full left-0 w-full h-32 bg-gradient-to-t from-[#42A5F5]/20 to-transparent"></div>
           </div>
 
         </div>
@@ -57,29 +57,23 @@
         ref="crossPointPhase"
         class="absolute inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none"
       >
-        <!-- Insight Card -->
-        <div class="relative w-[90%] max-w-3xl mb-10">
-          <div class="rounded-[1.75rem] p-px bg-gradient-to-b from-white/20 via-white/[0.06] to-transparent shadow-[0_24px_60px_-15px_rgba(0,0,0,0.65)]">
-            <div class="relative overflow-hidden rounded-[1.7rem] bg-neutral-900/80 backdrop-blur-2xl p-7 md:p-9">
-              <!-- top sheen + ambient brand glow -->
-              <div class="pointer-events-none absolute inset-x-12 top-px h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-              <div class="pointer-events-none absolute -top-16 -left-12 w-52 h-52 bg-primary/20 blur-[90px] rounded-full"></div>
-
-              <div class="relative flex items-start gap-5">
-                <div class="shrink-0 w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary-light">
-                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                    <path d="M7 11V7a5 5 0 0 1 9.9-1" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary-light mb-2.5">El Método</p>
-                  <h3 class="font-serif font-normal text-2xl md:text-[2rem] leading-[1.15] text-white mb-3">El secreto que el banco no te cuenta</h3>
-                  <p class="text-neutral-400 font-light text-sm md:text-base leading-relaxed max-w-xl">
-                    Durante años tu cuota paga casi solo intereses, no capital. Con <span class="text-white font-medium">abonos inteligentes a capital</span> reescribimos la fórmula de amortización y te devolvemos años — y millones — a tu bolsillo.
-                  </p>
-                </div>
-              </div>
+        <!-- Pain Cards (El Problema Real) -->
+        <div class="relative w-[95%] max-w-5xl mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Card 1 -->
+            <div class="relative overflow-hidden rounded-2xl bg-[#0A1628]/85 border border-[#1a2a3a] border-l-4 border-l-red-600 p-5 shadow-xl backdrop-blur-2xl">
+              <h4 class="text-white font-semibold text-base mb-1.5">Tu saldo UVR sube aunque pagues</h4>
+              <p class="text-neutral-400 text-xs md:text-sm font-light leading-relaxed">Cada mes depositas tu cuota puntualmente — y tu saldo en pesos sigue creciendo. Estás financiando al banco, no a tu vivienda.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="relative overflow-hidden rounded-2xl bg-[#0A1628]/85 border border-[#1a2a3a] border-l-4 border-l-red-600 p-5 shadow-xl backdrop-blur-2xl">
+              <h4 class="text-white font-semibold text-base mb-1.5">Los primeros 10 años pagas solo intereses</h4>
+              <p class="text-neutral-400 text-xs md:text-sm font-light leading-relaxed">El 85% de tu cuota en los primeros años se va en intereses. El banco cobra primero. Siempre. Y tú no lo ves en el extracto.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="relative overflow-hidden rounded-2xl bg-[#0A1628]/85 border border-[#1a2a3a] border-l-4 border-l-red-600 p-5 shadow-xl backdrop-blur-2xl">
+              <h4 class="text-white font-semibold text-base mb-1.5">30 años es demasiado tiempo de deuda</h4>
+              <p class="text-neutral-400 text-xs md:text-sm font-light leading-relaxed">Una hipoteca de 30 años no es una condena inevitable. Es una fórmula matemática que puede ser reescrita — si sabes cómo.</p>
             </div>
           </div>
         </div>
@@ -87,7 +81,7 @@
         <!-- Chart module (fintech-style glass panel) -->
         <div class="relative w-[90%] max-w-4xl">
           <div class="rounded-[1.75rem] p-px bg-gradient-to-b from-white/15 to-transparent shadow-[0_24px_60px_-15px_rgba(0,0,0,0.6)]">
-            <div class="relative rounded-[1.7rem] bg-neutral-900/60 backdrop-blur-2xl p-6 md:p-8 pb-14">
+            <div class="relative rounded-[1.7rem] bg-[#0A1628]/60 backdrop-blur-2xl p-6 md:p-8 pb-14">
               <div class="pointer-events-none absolute inset-x-12 top-px h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
 
               <!-- Header + legend -->
@@ -98,7 +92,7 @@
                 </div>
                 <div class="flex items-center gap-5 text-xs">
                   <span class="flex items-center gap-2 text-neutral-300"><span class="w-4 h-[3px] rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.7)]"></span>Sin estrategia</span>
-                  <span class="flex items-center gap-2 text-neutral-300"><span class="w-4 h-[3px] rounded-full bg-primary shadow-[0_0_8px_rgba(99,91,255,0.8)]"></span>Con abono inteligente</span>
+                  <span class="flex items-center gap-2 text-neutral-300"><span class="w-4 h-[3px] rounded-full bg-[#1565C0] shadow-[0_0_8px_rgba(21,101,192,0.8)]"></span>Con abono inteligente</span>
                 </div>
               </div>
 
@@ -111,8 +105,8 @@
                       <stop offset="100%" stop-color="#ef4444" stop-opacity="0" />
                     </linearGradient>
                     <linearGradient id="uvrBlueArea" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#635BFF" stop-opacity="0.34" />
-                      <stop offset="100%" stop-color="#635BFF" stop-opacity="0" />
+                      <stop offset="0%" stop-color="#1565C0" stop-opacity="0.34" />
+                      <stop offset="100%" stop-color="#1565C0" stop-opacity="0" />
                     </linearGradient>
                   </defs>
 
@@ -123,7 +117,7 @@
                   <!-- Red curve: SIN estrategia → 30 años -->
                   <path ref="redPath" d="M 12,340 C 170,250 390,128 580,122 C 770,116 910,310 1000,498" fill="none" stroke="#ef4444" stroke-width="5" stroke-linecap="round" class="drop-shadow-[0_0_12px_rgba(239,68,68,0.5)]" stroke-dasharray="2000" stroke-dashoffset="2000" />
                   <!-- Blue curve: CON abono inteligente → paga antes (P.E.) -->
-                  <path ref="bluePath" d="M 12,340 C 120,300 270,245 360,245 C 470,245 580,400 644,498" fill="none" stroke="#635BFF" stroke-width="6" stroke-linecap="round" class="drop-shadow-[0_0_16px_rgba(99,91,255,0.85)]" stroke-dasharray="2000" stroke-dashoffset="2000" />
+                  <path ref="bluePath" d="M 12,340 C 120,300 270,245 360,245 C 470,245 580,400 644,498" fill="none" stroke="#1565C0" stroke-width="6" stroke-linecap="round" class="drop-shadow-[0_0_16px_rgba(21,101,192,0.85)]" stroke-dasharray="2000" stroke-dashoffset="2000" />
                 </svg>
 
                 <!-- Vertical dashed marker from the baseline up to the blue curve's peak -->

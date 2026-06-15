@@ -23,6 +23,7 @@ interface _GlobalComponents {
   CreditCardSection: typeof import("../../app/components/CreditCardSection.vue")['default']
   CtaBannerSection: typeof import("../../app/components/CtaBannerSection.vue")['default']
   DashboardMockup: typeof import("../../app/components/DashboardMockup.vue")['default']
+  FaqSection: typeof import("../../app/components/FaqSection.vue")['default']
   FeaturesGridSection: typeof import("../../app/components/FeaturesGridSection.vue")['default']
   Hero: typeof import("../../app/components/Hero.vue")['default']
   HeroHook: typeof import("../../app/components/HeroHook.vue")['default']
@@ -31,9 +32,11 @@ interface _GlobalComponents {
   PressLogosSection: typeof import("../../app/components/PressLogosSection.vue")['default']
   ProblemGraph: typeof import("../../app/components/ProblemGraph.vue")['default']
   ProductsSection: typeof import("../../app/components/ProductsSection.vue")['default']
+  SavingsCalculator: typeof import("../../app/components/SavingsCalculator.vue")['default']
   ServicesBento: typeof import("../../app/components/ServicesBento.vue")['default']
   StepsSection: typeof import("../../app/components/StepsSection.vue")['default']
   StickyFeatures: typeof import("../../app/components/StickyFeatures.vue")['default']
+  SuccessStories: typeof import("../../app/components/SuccessStories.vue")['default']
   TestimonialSection: typeof import("../../app/components/TestimonialSection.vue")['default']
   TestimonialsLeadMagnet: typeof import("../../app/components/TestimonialsLeadMagnet.vue")['default']
   TreasurySection: typeof import("../../app/components/TreasurySection.vue")['default']
@@ -74,6 +77,7 @@ interface _GlobalComponents {
   LazyCreditCardSection: LazyComponent<typeof import("../../app/components/CreditCardSection.vue")['default']>
   LazyCtaBannerSection: LazyComponent<typeof import("../../app/components/CtaBannerSection.vue")['default']>
   LazyDashboardMockup: LazyComponent<typeof import("../../app/components/DashboardMockup.vue")['default']>
+  LazyFaqSection: LazyComponent<typeof import("../../app/components/FaqSection.vue")['default']>
   LazyFeaturesGridSection: LazyComponent<typeof import("../../app/components/FeaturesGridSection.vue")['default']>
   LazyHero: LazyComponent<typeof import("../../app/components/Hero.vue")['default']>
   LazyHeroHook: LazyComponent<typeof import("../../app/components/HeroHook.vue")['default']>
@@ -82,9 +86,11 @@ interface _GlobalComponents {
   LazyPressLogosSection: LazyComponent<typeof import("../../app/components/PressLogosSection.vue")['default']>
   LazyProblemGraph: LazyComponent<typeof import("../../app/components/ProblemGraph.vue")['default']>
   LazyProductsSection: LazyComponent<typeof import("../../app/components/ProductsSection.vue")['default']>
+  LazySavingsCalculator: LazyComponent<typeof import("../../app/components/SavingsCalculator.vue")['default']>
   LazyServicesBento: LazyComponent<typeof import("../../app/components/ServicesBento.vue")['default']>
   LazyStepsSection: LazyComponent<typeof import("../../app/components/StepsSection.vue")['default']>
   LazyStickyFeatures: LazyComponent<typeof import("../../app/components/StickyFeatures.vue")['default']>
+  LazySuccessStories: LazyComponent<typeof import("../../app/components/SuccessStories.vue")['default']>
   LazyTestimonialSection: LazyComponent<typeof import("../../app/components/TestimonialSection.vue")['default']>
   LazyTestimonialsLeadMagnet: LazyComponent<typeof import("../../app/components/TestimonialsLeadMagnet.vue")['default']>
   LazyTreasurySection: LazyComponent<typeof import("../../app/components/TreasurySection.vue")['default']>

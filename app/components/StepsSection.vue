@@ -1,27 +1,30 @@
 <template>
-  <section ref="sectionRef" class="bg-white py-24 lg:py-32">
-    <div class="container-main">
+  <section id="metodo-ares" ref="sectionRef" class="bg-neutral-950 py-24 lg:py-32 border-t border-neutral-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
       <!-- Header -->
-      <div ref="headerRef" class="text-center mb-16">
-        <h2 class="font-serif text-4xl sm:text-5xl text-mercury-text">
-          Apply online in 10 minutes
+      <div ref="headerRef" class="text-center mb-16 opacity-0 translate-y-8">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-light text-xs font-semibold tracking-widest uppercase mb-4">
+          El Método ARES™
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-white">
+          Cuatro pasos hacia tu libertad financiera
         </h2>
       </div>
 
       <!-- Steps Grid -->
-      <div ref="cardsRef" class="grid md:grid-cols-3 gap-8">
+      <div ref="cardsRef" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
           v-for="(step, index) in steps"
           :key="index"
-          class="bg-mercury-cream rounded-xl p-8 lg:p-10 text-center group hover:shadow-lg transition-shadow duration-300"
+          class="step-card bg-mercury-panel border border-mercury-border rounded-2xl p-8 text-center group hover:border-primary/40 hover:shadow-[0_10px_30px_rgba(21,101,192,0.15)] transition-all duration-300 opacity-0 translate-y-12"
         >
-          <div class="w-14 h-14 mx-auto mb-6 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-            <component :is="step.icon" class="w-7 h-7 text-primary" />
+          <div class="font-serif text-5xl md:text-6xl font-bold text-primary-light line-height-1 mb-4 select-none group-hover:scale-110 transition-transform duration-300">
+            {{ step.letter }}
           </div>
-          <h3 class="font-sans font-medium text-xl text-mercury-text mb-3">
+          <h3 class="font-sans font-semibold text-lg text-white mb-3">
             {{ step.title }}
           </h3>
-          <p class="text-mercury-muted text-sm leading-relaxed">
+          <p class="text-neutral-400 text-sm leading-relaxed font-light">
             {{ step.description }}
           </p>
         </div>
@@ -32,7 +35,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { FileText, CreditCard, Zap } from 'lucide-vue-next'
 
 const sectionRef = ref(null)
 const headerRef = ref(null)
@@ -40,55 +42,60 @@ const cardsRef = ref(null)
 
 const steps = [
   {
-    icon: FileText,
-    title: 'Apply online in 10 minutes',
-    description: 'Fill out a quick application with your business details. No paperwork, no branch visits.',
+    letter: 'A',
+    title: 'Analizar',
+    description: 'Estudiamos tu extracto actual y el plan de amortización real para encontrar las fugas de dinero.',
   },
   {
-    icon: CreditCard,
-    title: 'Get a credit card instantly\u2074',
-    description: 'Access your virtual card immediately and start spending right away.',
+    letter: 'R',
+    title: 'Reestructurar',
+    description: 'Diseñamos una propuesta a la medida, proyectando el ahorro exacto en años e intereses.',
   },
   {
-    icon: Zap,
-    title: 'Tackle banking tasks in seconds',
-    description: 'Send wires, pay bills, and manage expenses—all from one modern dashboard.',
+    letter: 'E',
+    title: 'Ejecutar',
+    description: 'Radicamos y gestionamos la solicitud formal ante tu entidad bancaria, asegurando la aprobación.',
+  },
+  {
+    letter: 'S',
+    title: 'Sostener',
+    description: 'Te acompañamos durante la vida del crédito para asegurar que cada abono posterior siga la estrategia.',
   },
 ]
 
 onMounted(() => {
-  if (process.server) return
+  if (!process.client) return
 
   const { gsap } = useGsap()
-  const { ScrollTrigger } = useGsap()
 
-  gsap.fromTo(headerRef.value,
-    { opacity: 0, y: 30 },
-    {
-      opacity: 1, y: 0, duration: 0.8,
+  // Animate Header
+  gsap.to(headerRef.value, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: sectionRef.value,
+      start: 'top 80%',
+      once: true
+    }
+  })
+
+  // Animate Step Cards
+  const cards = cardsRef.value?.children
+  if (cards) {
+    gsap.to(cards, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.15,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: sectionRef.value,
+        trigger: cardsRef.value,
         start: 'top 80%',
         once: true
       }
-    }
-  )
-
-  const cards = cardsRef.value?.children
-  if (cards) {
-    gsap.fromTo(cards,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1, y: 0, duration: 0.8, stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: cardsRef.value,
-          start: 'top 80%',
-          once: true
-        }
-      }
-    )
+    })
   }
 })
 </script>

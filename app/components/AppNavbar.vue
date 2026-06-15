@@ -1,7 +1,14 @@
 <template>
-  <header class="fixed top-0 inset-x-0 z-50 pointer-events-none">
-    <div class="flex flex-col items-center px-4 pt-4">
+  <header class="fixed top-0 inset-x-0 z-50 pointer-events-none flex flex-col items-stretch">
+    <!-- Announcement Bar -->
+    <div class="pointer-events-auto bg-[#1565C0] text-white text-center py-2.5 px-4 text-xs font-semibold tracking-wider w-full flex items-center justify-center gap-2 shadow-md">
+      <span class="inline-flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Solo 8 cupos de diagnóstico gratuito disponibles este mes — <a href="#contacto" class="underline cursor-pointer hover:text-white/80 transition-colors">Reserva el tuyo ahora</a>
+      </span>
+    </div>
 
+    <div class="flex flex-col items-center px-4 pt-4 w-full">
       <!-- Floating glass pill -->
       <nav
         :class="[
@@ -45,7 +52,7 @@
 
         <!-- CTA -->
         <a
-          href="#diagnostico"
+          href="#contacto"
           class="relative z-10 hidden sm:inline-flex items-center ml-2 px-5 py-2 text-sm font-semibold bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 hover:scale-105 active:scale-95 shadow-glow-primary hover:shadow-glow-primary-lg"
         >
           Diagnóstico
@@ -94,7 +101,7 @@
             </a>
 
             <a
-              href="#diagnostico"
+              href="#contacto"
               class="relative z-10 mt-1 w-full py-3.5 bg-primary text-white text-center font-semibold rounded-2xl shadow-glow-primary"
               @click="isMobileMenuOpen = false"
             >
@@ -117,8 +124,9 @@ const isMobileMenuOpen = ref(false)
 // Flat anchor links to the real sections on the page (read order)
 const navItems = [
   { label: 'El Método', href: '#metodo' },
-  { label: 'El Arquitecto', href: '#arquitecto' },
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Rafael', href: '#rafael' },
+  { label: 'Contacto', href: '#contacto' },
 ]
 
 function handleScroll() {

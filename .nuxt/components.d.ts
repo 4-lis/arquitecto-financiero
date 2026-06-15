@@ -23,6 +23,7 @@ export const ConversionWall: typeof import("../app/components/ConversionWall.vue
 export const CreditCardSection: typeof import("../app/components/CreditCardSection.vue")['default']
 export const CtaBannerSection: typeof import("../app/components/CtaBannerSection.vue")['default']
 export const DashboardMockup: typeof import("../app/components/DashboardMockup.vue")['default']
+export const FaqSection: typeof import("../app/components/FaqSection.vue")['default']
 export const FeaturesGridSection: typeof import("../app/components/FeaturesGridSection.vue")['default']
 export const Hero: typeof import("../app/components/Hero.vue")['default']
 export const HeroHook: typeof import("../app/components/HeroHook.vue")['default']
@@ -31,9 +32,11 @@ export const HeroZoom: typeof import("../app/components/HeroZoom.vue")['default'
 export const PressLogosSection: typeof import("../app/components/PressLogosSection.vue")['default']
 export const ProblemGraph: typeof import("../app/components/ProblemGraph.vue")['default']
 export const ProductsSection: typeof import("../app/components/ProductsSection.vue")['default']
+export const SavingsCalculator: typeof import("../app/components/SavingsCalculator.vue")['default']
 export const ServicesBento: typeof import("../app/components/ServicesBento.vue")['default']
 export const StepsSection: typeof import("../app/components/StepsSection.vue")['default']
 export const StickyFeatures: typeof import("../app/components/StickyFeatures.vue")['default']
+export const SuccessStories: typeof import("../app/components/SuccessStories.vue")['default']
 export const TestimonialSection: typeof import("../app/components/TestimonialSection.vue")['default']
 export const TestimonialsLeadMagnet: typeof import("../app/components/TestimonialsLeadMagnet.vue")['default']
 export const TreasurySection: typeof import("../app/components/TreasurySection.vue")['default']
@@ -74,6 +77,7 @@ export const LazyConversionWall: LazyComponent<typeof import("../app/components/
 export const LazyCreditCardSection: LazyComponent<typeof import("../app/components/CreditCardSection.vue")['default']>
 export const LazyCtaBannerSection: LazyComponent<typeof import("../app/components/CtaBannerSection.vue")['default']>
 export const LazyDashboardMockup: LazyComponent<typeof import("../app/components/DashboardMockup.vue")['default']>
+export const LazyFaqSection: LazyComponent<typeof import("../app/components/FaqSection.vue")['default']>
 export const LazyFeaturesGridSection: LazyComponent<typeof import("../app/components/FeaturesGridSection.vue")['default']>
 export const LazyHero: LazyComponent<typeof import("../app/components/Hero.vue")['default']>
 export const LazyHeroHook: LazyComponent<typeof import("../app/components/HeroHook.vue")['default']>
@@ -82,9 +86,11 @@ export const LazyHeroZoom: LazyComponent<typeof import("../app/components/HeroZo
 export const LazyPressLogosSection: LazyComponent<typeof import("../app/components/PressLogosSection.vue")['default']>
 export const LazyProblemGraph: LazyComponent<typeof import("../app/components/ProblemGraph.vue")['default']>
 export const LazyProductsSection: LazyComponent<typeof import("../app/components/ProductsSection.vue")['default']>
+export const LazySavingsCalculator: LazyComponent<typeof import("../app/components/SavingsCalculator.vue")['default']>
 export const LazyServicesBento: LazyComponent<typeof import("../app/components/ServicesBento.vue")['default']>
 export const LazyStepsSection: LazyComponent<typeof import("../app/components/StepsSection.vue")['default']>
 export const LazyStickyFeatures: LazyComponent<typeof import("../app/components/StickyFeatures.vue")['default']>
+export const LazySuccessStories: LazyComponent<typeof import("../app/components/SuccessStories.vue")['default']>
 export const LazyTestimonialSection: LazyComponent<typeof import("../app/components/TestimonialSection.vue")['default']>
 export const LazyTestimonialsLeadMagnet: LazyComponent<typeof import("../app/components/TestimonialsLeadMagnet.vue")['default']>
 export const LazyTreasurySection: LazyComponent<typeof import("../app/components/TreasurySection.vue")['default']>
