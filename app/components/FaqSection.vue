@@ -106,31 +106,42 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
-    // Background color transition from bright blue to dark blue
-    gsap.fromTo(sectionRef.value, 
-      { backgroundColor: '#1565C0' },
-      {
+    const mm = gsap.matchMedia()
+
+    // Desktop
+    mm.add("(min-width: 1024px)", () => {
+      // Background color transition from bright blue to dark blue
+      gsap.fromTo(sectionRef.value, 
+        { backgroundColor: '#1565C0' },
+        {
+          scrollTrigger: {
+            trigger: sectionRef.value,
+            start: 'top 80%',
+            end: 'top 40%',
+            scrub: true,
+          },
+          backgroundColor: '#050D1A',
+          ease: 'none'
+        }
+      )
+
+      gsap.to('.faq-anim', {
         scrollTrigger: {
           trigger: sectionRef.value,
-          start: 'top 80%',
-          end: 'top 40%',
-          scrub: true,
+          start: 'top 60%',
         },
-        backgroundColor: '#050D1A',
-        ease: 'none'
-      }
-    )
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out'
+      })
+    })
 
-    gsap.to('.faq-anim', {
-      scrollTrigger: {
-        trigger: sectionRef.value,
-        start: 'top 60%',
-      },
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power3.out'
+    // Mobile
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(sectionRef.value, { backgroundColor: '#050D1A' })
+      gsap.set('.faq-anim', { y: 0, opacity: 1 })
     })
   })
 })

@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="absolute inset-0 z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between max-w-7xl mx-auto px-6 lg:px-12 opacity-0"
+    class="relative lg:absolute lg:inset-0 z-20 lg:z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-0 w-full opacity-0 lg:opacity-0"
   >
     <!-- Text Column -->
     <div class="w-full lg:w-1/2 flex flex-col items-start z-20">

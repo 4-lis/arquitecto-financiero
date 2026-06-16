@@ -158,31 +158,42 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
-    // Background color transition from dark blue to bright blue
-    gsap.fromTo(sectionRef.value, 
-      { backgroundColor: '#050D1A' },
-      {
+    const mm = gsap.matchMedia()
+
+    // Desktop
+    mm.add("(min-width: 1024px)", () => {
+      // Background color transition from dark blue to bright blue
+      gsap.fromTo(sectionRef.value, 
+        { backgroundColor: '#050D1A' },
+        {
+          scrollTrigger: {
+            trigger: sectionRef.value,
+            start: 'top 80%',
+            end: 'top 40%',
+            scrub: true,
+          },
+          backgroundColor: '#1565C0',
+          ease: 'none'
+        }
+      )
+
+      gsap.to('.calc-anim', {
         scrollTrigger: {
           trigger: sectionRef.value,
           start: 'top 80%',
-          end: 'top 40%',
-          scrub: true,
         },
-        backgroundColor: '#1565C0',
-        ease: 'none'
-      }
-    )
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: 'power3.out'
+      })
+    })
 
-    gsap.to('.calc-anim', {
-      scrollTrigger: {
-        trigger: sectionRef.value,
-        start: 'top 80%',
-      },
-      y: 0,
-      opacity: 1,
-      duration: 0.9,
-      stagger: 0.15,
-      ease: 'power3.out'
+    // Mobile
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(sectionRef.value, { backgroundColor: '#1565C0' })
+      gsap.set('.calc-anim', { y: 0, opacity: 1 })
     })
   })
 })

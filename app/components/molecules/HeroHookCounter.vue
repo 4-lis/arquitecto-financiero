@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="absolute inset-0 z-50 flex items-center justify-center pointer-events-none"
+    class="relative lg:absolute lg:inset-0 z-10 lg:z-50 flex items-center justify-center pointer-events-none min-h-[50vh] lg:min-h-0 py-16 lg:py-0 w-full"
   >
     <!-- Cinematic Background Layer (image + dark veils — faded out as the hero reveals) -->
     <div class="hook-overlay absolute inset-0 z-[-1] overflow-hidden">

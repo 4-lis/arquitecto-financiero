@@ -1,11 +1,17 @@
 <template>
-  <section id="metodo" ref="scannerContainer" class="relative w-full bg-[#050D1A]" style="height: 400vh;">
-    <div class="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center">
+  <section id="metodo" ref="scannerContainer" class="relative w-full bg-[#050D1A]" :style="{ height: isMobile ? 'auto' : '400vh' }">
+    <div :class="[
+      'w-full flex flex-col items-center justify-center',
+      isMobile ? 'relative py-16 gap-16' : 'sticky top-0 h-screen overflow-hidden'
+    ]">
 
       <!-- 1. The Bank Statement & Scanner Phase -->
       <div 
         ref="statementPhase"
-        class="absolute inset-0 flex items-center justify-center pointer-events-none"
+        :class="[
+          'w-full flex items-center justify-center',
+          isMobile ? 'relative' : 'absolute inset-0 pointer-events-none'
+        ]"
       >
         <div class="relative w-[90%] max-w-2xl bg-[#0A1628] border border-[#1a2a3a] rounded-2xl p-8 md:p-12 shadow-2xl overflow-hidden">
           
@@ -55,7 +61,10 @@
       <!-- 2. The Cross Point Phase (Appears after scanner) -->
       <div 
         ref="crossPointPhase"
-        class="absolute inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none"
+        :class="[
+          'w-full flex flex-col items-center justify-center',
+          isMobile ? 'relative' : 'absolute inset-0 opacity-0 pointer-events-none'
+        ]"
       >
         <!-- Pain Cards (El Problema Real) -->
         <div class="relative w-[95%] max-w-5xl mb-6">
@@ -167,11 +176,20 @@ const redPath = ref(null)
 const bluePath = ref(null)
 const crossText = ref(null)
 
+const isMobile = ref(false)
+let checkMobile
+
 let ctx
 
 onMounted(() => {
   if (!process.client) return
   gsap.registerPlugin(ScrollTrigger)
+
+  checkMobile = () => {
+    isMobile.value = window.innerWidth < 1024
+  }
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
 
   ctx = gsap.context(() => {
 
@@ -199,87 +217,104 @@ onMounted(() => {
       p.style.strokeDashoffset = String(len)
     })
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: scannerContainer.value,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1,
-      }
+    const mm = gsap.matchMedia()
+
+    // Desktop Scroll-driven Timeline
+    mm.add("(min-width: 1024px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: scannerContainer.value,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1,
+        }
+      })
+
+      // Phase 1: Scanner moves down [0 to 3]
+      tl.to(scannerLine.value, {
+        top: '100%',
+        ease: 'none',
+        duration: 3
+      }, 0)
+      
+      // Reveal text in sync with scanner [0 to 3]
+      tl.to(revealTextWrapper.value, {
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+        ease: 'none',
+        duration: 3
+      }, 0)
+
+      // Fade out statement phase [3.5 to 4.5]
+      tl.to(statementPhase.value, {
+        opacity: 0,
+        scale: 0.95,
+        duration: 1,
+        ease: 'power2.inOut'
+      }, 3.5)
+
+      // Phase 2: Fade in cross point phase [4.5 to 5.5]
+      tl.to(crossPointPhase.value, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out'
+      }, 4.5)
+
+      // Draw Red Line (Bank/Inflation) [5.5 to 7.5]
+      tl.to(redPath.value, {
+        strokeDashoffset: 0,
+        ease: 'power1.inOut',
+        duration: 2
+      }, 5.5)
+
+      // Fill the red area as its line draws
+      tl.to('.area-red', {
+        opacity: 1,
+        duration: 1.4,
+        ease: 'power1.out'
+      }, 5.8)
+
+      // Draw Blue Line (Intervention) aggressively [6.5 to 8.5]
+      tl.to(bluePath.value, {
+        strokeDashoffset: 0,
+        ease: 'power3.inOut',
+        duration: 2
+      }, 6.5)
+
+      // Fill the blue area as its line draws
+      tl.to('.area-blue', {
+        opacity: 1,
+        duration: 1.4,
+        ease: 'power1.out'
+      }, 6.8)
+
+      // Show Crossing text exactly when blue crosses red [7.5 to 8]
+      tl.to(crossText.value, {
+        opacity: 1,
+        y: -10,
+        duration: 0.5,
+        ease: 'power2.out'
+      }, 7.5)
+
+      // Hold at the end [8.5 to 10] (done implicitly by timeline duration)
+      tl.to({}, { duration: 1.5 })
     })
 
-    // Phase 1: Scanner moves down [0 to 3]
-    tl.to(scannerLine.value, {
-      top: '100%',
-      ease: 'none',
-      duration: 3
-    }, 0)
-    
-    // Reveal text in sync with scanner [0 to 3]
-    tl.to(revealTextWrapper.value, {
-      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-      ease: 'none',
-      duration: 3
-    }, 0)
-
-    // Fade out statement phase [3.5 to 4.5]
-    tl.to(statementPhase.value, {
-      opacity: 0,
-      scale: 0.95,
-      duration: 1,
-      ease: 'power2.inOut'
-    }, 3.5)
-
-    // Phase 2: Fade in cross point phase [4.5 to 5.5]
-    tl.to(crossPointPhase.value, {
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out'
-    }, 4.5)
-
-    // Draw Red Line (Bank/Inflation) [5.5 to 7.5]
-    tl.to(redPath.value, {
-      strokeDashoffset: 0,
-      ease: 'power1.inOut',
-      duration: 2
-    }, 5.5)
-
-    // Fill the red area as its line draws
-    tl.to('.area-red', {
-      opacity: 1,
-      duration: 1.4,
-      ease: 'power1.out'
-    }, 5.8)
-
-    // Draw Blue Line (Intervention) aggressively [6.5 to 8.5]
-    tl.to(bluePath.value, {
-      strokeDashoffset: 0,
-      ease: 'power3.inOut',
-      duration: 2
-    }, 6.5)
-
-    // Fill the blue area as its line draws
-    tl.to('.area-blue', {
-      opacity: 1,
-      duration: 1.4,
-      ease: 'power1.out'
-    }, 6.8)
-
-    // Show Crossing text exactly when blue crosses red [7.5 to 8]
-    tl.to(crossText.value, {
-      opacity: 1,
-      y: -10,
-      duration: 0.5,
-      ease: 'power2.out'
-    }, 7.5)
-
-    // Hold at the end [8.5 to 10] (done implicitly by timeline duration)
-    tl.to({}, { duration: 1.5 })
+    // Mobile Static Layout (No scroll jacking, everything visible)
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(revealTextWrapper.value, { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' })
+      gsap.set(scannerLine.value, { autoAlpha: 0 })
+      gsap.set(statementPhase.value, { autoAlpha: 1, opacity: 1, scale: 1 })
+      gsap.set(crossPointPhase.value, { autoAlpha: 1, opacity: 1 })
+      gsap.set([redPath.value, bluePath.value], { strokeDashoffset: 0 })
+      gsap.set(['.area-red', '.area-blue'], { opacity: 1 })
+      gsap.set(crossText.value, { opacity: 1, y: 0 })
+    })
 
   }, scannerContainer.value)
 })
 
 onUnmounted(() => {
+  if (checkMobile) window.removeEventListener('resize', checkMobile)
   if (ctx) ctx.revert()
 })
 </script>

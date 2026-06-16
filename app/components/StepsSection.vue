@@ -68,49 +68,64 @@ onMounted(() => {
 
   const { gsap } = useGsap()
 
-  // Background transition
-  gsap.fromTo(sectionRef.value,
-    { backgroundColor: '#050D1A' },
-    {
-      scrollTrigger: {
-        trigger: sectionRef.value,
-        start: 'top 80%',
-        end: 'top 40%',
-        scrub: true,
-      },
-      backgroundColor: '#ffffff',
-      ease: 'none'
-    }
-  )
+  const mm = gsap.matchMedia()
 
-  // Animate Header
-  gsap.to(headerRef.value, {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: sectionRef.value,
-      start: 'top 60%',
-      once: true
-    }
-  })
+  // Desktop Scroll-driven transitions
+  mm.add("(min-width: 1024px)", () => {
+    // Background transition
+    gsap.fromTo(sectionRef.value,
+      { backgroundColor: '#050D1A' },
+      {
+        scrollTrigger: {
+          trigger: sectionRef.value,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: true,
+        },
+        backgroundColor: '#ffffff',
+        ease: 'none'
+      }
+    )
 
-  // Animate Step Cards
-  const cards = cardsRef.value?.children
-  if (cards) {
-    gsap.to(cards, {
+    // Animate Header
+    gsap.to(headerRef.value, {
       opacity: 1,
       y: 0,
       duration: 0.8,
-      stagger: 0.15,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: cardsRef.value,
+        trigger: sectionRef.value,
         start: 'top 60%',
         once: true
       }
     })
-  }
+
+    // Animate Step Cards
+    const cards = cardsRef.value?.children
+    if (cards) {
+      gsap.to(cards, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: cardsRef.value,
+          start: 'top 60%',
+          once: true
+        }
+      })
+    }
+  })
+
+  // Mobile layout
+  mm.add("(max-width: 1023px)", () => {
+    gsap.set(sectionRef.value, { backgroundColor: '#ffffff' })
+    gsap.set(headerRef.value, { opacity: 1, y: 0 })
+    const cards = cardsRef.value?.children
+    if (cards) {
+      gsap.set(cards, { opacity: 1, y: 0 })
+    }
+  })
 })
 </script>

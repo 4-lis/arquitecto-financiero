@@ -92,41 +92,53 @@ onMounted(() => {
 
   ctx = gsap.context(() => {
 
-    // Background color transition
-    gsap.to(profileSection.value, {
-      scrollTrigger: {
-        trigger: profileSection.value,
-        start: 'top 70%',
-        end: 'top 30%',
-        scrub: true,
-      },
-      backgroundColor: '#ffffff',
-      ease: 'none'
+    const mm = gsap.matchMedia()
+
+    // Desktop
+    mm.add("(min-width: 1024px)", () => {
+      // Background color transition
+      gsap.to(profileSection.value, {
+        scrollTrigger: {
+          trigger: profileSection.value,
+          start: 'top 70%',
+          end: 'top 30%',
+          scrub: true,
+        },
+        backgroundColor: '#ffffff',
+        ease: 'none'
+      })
+
+      // Profile text fade in
+      gsap.to('.profile-text', {
+        scrollTrigger: {
+          trigger: profileSection.value,
+          start: 'top 50%',
+        },
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out'
+      })
+
+      // Staggered Bio Fade-up
+      gsap.to('.bio-element', {
+        scrollTrigger: {
+          trigger: bioContainer.value,
+          start: 'top 60%',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: 'power3.out'
+      })
     })
 
-    // Profile text fade in
-    gsap.to('.profile-text', {
-      scrollTrigger: {
-        trigger: profileSection.value,
-        start: 'top 50%',
-      },
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power3.out'
-    })
-
-    // Staggered Bio Fade-up
-    gsap.to('.bio-element', {
-      scrollTrigger: {
-        trigger: bioContainer.value,
-        start: 'top 60%',
-      },
-      y: 0,
-      opacity: 1,
-      duration: 0.9,
-      stagger: 0.15,
-      ease: 'power3.out'
+    // Mobile
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(profileSection.value, { backgroundColor: '#ffffff' })
+      gsap.set('.profile-text', { opacity: 1 })
+      gsap.set('.bio-element', { y: 0, opacity: 1 })
     })
 
   })

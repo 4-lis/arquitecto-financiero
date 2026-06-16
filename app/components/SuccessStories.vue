@@ -90,28 +90,40 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
-    // Background color transition from white back to dark blue
-    gsap.fromTo(sectionRef.value, 
-      { backgroundColor: '#ffffff' },
-      {
-        scrollTrigger: {
-          trigger: sectionRef.value,
-          start: 'top 80%',
-          end: 'top 30%',
-          scrub: true,
-        },
-        backgroundColor: '#050D1A',
-        ease: 'none'
-      }
-    )
+    const mm = gsap.matchMedia()
 
-    gsap.to('.story-title', {
-      scrollTrigger: { trigger: sectionRef.value, start: 'top 60%' },
-      y: 0, opacity: 1, duration: 0.9, stagger: 0.2, ease: 'power3.out'
+    // Desktop
+    mm.add("(min-width: 1024px)", () => {
+      // Background color transition from white back to dark blue
+      gsap.fromTo(sectionRef.value, 
+        { backgroundColor: '#ffffff' },
+        {
+          scrollTrigger: {
+            trigger: sectionRef.value,
+            start: 'top 80%',
+            end: 'top 30%',
+            scrub: true,
+          },
+          backgroundColor: '#050D1A',
+          ease: 'none'
+        }
+      )
+
+      gsap.to('.story-title', {
+        scrollTrigger: { trigger: sectionRef.value, start: 'top 60%' },
+        y: 0, opacity: 1, duration: 0.9, stagger: 0.2, ease: 'power3.out'
+      })
+      gsap.to('.story-card', {
+        scrollTrigger: { trigger: sectionRef.value, start: 'top 70%' },
+        y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out'
+      })
     })
-    gsap.to('.story-card', {
-      scrollTrigger: { trigger: sectionRef.value, start: 'top 70%' },
-      y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out'
+
+    // Mobile
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(sectionRef.value, { backgroundColor: '#050D1A' })
+      gsap.set('.story-title', { y: 0, opacity: 1 })
+      gsap.set('.story-card', { y: 0, opacity: 1 })
     })
   })
 })

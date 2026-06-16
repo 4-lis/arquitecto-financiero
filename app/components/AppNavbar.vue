@@ -1,11 +1,18 @@
 <template>
   <header class="fixed top-0 inset-x-0 z-50 pointer-events-none flex flex-col items-stretch">
     <!-- Announcement Bar -->
-    <div class="pointer-events-auto bg-[#1565C0] text-white text-center py-2.5 px-4 text-xs font-semibold tracking-wider w-full flex items-center justify-center gap-2 shadow-md">
-      <span class="inline-flex items-center gap-1.5">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-        Solo 8 cupos de diagnóstico gratuito disponibles este mes — <a href="#contacto" class="underline cursor-pointer hover:text-white/80 transition-colors">Reserva el tuyo ahora</a>
+    <div v-if="isAnnouncementOpen" class="pointer-events-auto bg-[#1565C0] text-white py-2 px-8 sm:py-2.5 sm:px-10 text-[10px] sm:text-xs font-semibold tracking-wider w-full flex items-center justify-center relative shadow-md">
+      <span class="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-1.5 text-center leading-tight sm:leading-normal max-w-[90%]">
+        <span class="flex items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Solo 8 cupos de diagnóstico gratuito disponibles este mes</span>
+        </span>
+        <span class="hidden sm:inline">—</span>
+        <a href="#contacto" class="underline cursor-pointer hover:text-white/80 transition-colors">Reserva el tuyo ahora</a>
       </span>
+      <button @click="isAnnouncementOpen = false" class="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 sm:p-1 hover:bg-white/20 rounded-full transition-colors" aria-label="Cerrar anuncio">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
     </div>
 
     <div class="flex flex-col items-center px-4 pt-4 w-full">
@@ -120,6 +127,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
+const isAnnouncementOpen = ref(true)
 
 // Flat anchor links to the real sections on the page (read order)
 const navItems = [

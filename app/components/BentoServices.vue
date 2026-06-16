@@ -131,45 +131,57 @@ onMounted(() => {
 
   ctx = gsap.context(() => {
     
-    // Transition background color to match design
-    gsap.fromTo(bentoSection.value, 
-      { backgroundColor: '#ffffff' },
-      {
+    const mm = gsap.matchMedia()
+
+    // Desktop
+    mm.add("(min-width: 1024px)", () => {
+      // Transition background color to match design
+      gsap.fromTo(bentoSection.value, 
+        { backgroundColor: '#ffffff' },
+        {
+          scrollTrigger: {
+            trigger: bentoSection.value,
+            start: 'top 80%',
+            end: 'top 40%',
+            scrub: true,
+          },
+          backgroundColor: '#0A1628',
+          ease: 'none'
+        }
+      )
+
+      // Fade up Titles
+      gsap.to('.bento-title', {
         scrollTrigger: {
           trigger: bentoSection.value,
-          start: 'top 80%',
-          end: 'top 40%',
-          scrub: true,
+          start: 'top 70%',
         },
-        backgroundColor: '#0A1628',
-        ease: 'none'
-      }
-    )
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+      })
 
-    // Fade up Titles
-    gsap.to('.bento-title', {
-      scrollTrigger: {
-        trigger: bentoSection.value,
-        start: 'top 70%',
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.2,
-      ease: 'power3.out'
+      // Bento Cards Entrance
+      gsap.to('.bento-card', {
+        scrollTrigger: {
+          trigger: '.bento-grid',
+          start: 'top 80%',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.12,
+        ease: 'power3.out'
+      })
     })
 
-    // Bento Cards Entrance
-    gsap.to('.bento-card', {
-      scrollTrigger: {
-        trigger: '.bento-grid',
-        start: 'top 80%',
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.12,
-      ease: 'power3.out'
+    // Mobile
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(bentoSection.value, { backgroundColor: '#0A1628' })
+      gsap.set('.bento-title', { y: 0, opacity: 1 })
+      gsap.set('.bento-card', { y: 0, opacity: 1 })
     })
 
   })
