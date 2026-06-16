@@ -1,17 +1,11 @@
 <template>
-  <section id="metodo" ref="scannerContainer" class="relative w-full bg-[#050D1A]" :style="{ height: isMobile ? 'auto' : '400vh' }">
-    <div :class="[
-      'w-full flex flex-col items-center justify-center',
-      isMobile ? 'relative py-16 gap-16' : 'sticky top-0 h-screen overflow-hidden'
-    ]">
+  <section id="metodo" ref="scannerContainer" class="relative w-full bg-[#050D1A] h-auto lg:h-[400vh]">
+    <div class="relative w-full flex flex-col items-center justify-center py-16 gap-16 lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden lg:py-0 lg:gap-0">
 
       <!-- 1. The Bank Statement & Scanner Phase -->
       <div 
         ref="statementPhase"
-        :class="[
-          'w-full flex items-center justify-center',
-          isMobile ? 'relative' : 'absolute inset-0 pointer-events-none'
-        ]"
+        class="relative w-full flex items-center justify-center lg:absolute lg:inset-0 lg:pointer-events-none"
       >
         <div class="relative w-[90%] max-w-2xl bg-[#0A1628] border border-[#1a2a3a] rounded-2xl p-8 md:p-12 shadow-2xl overflow-hidden">
           
@@ -61,10 +55,7 @@
       <!-- 2. The Cross Point Phase (Appears after scanner) -->
       <div 
         ref="crossPointPhase"
-        :class="[
-          'w-full flex flex-col items-center justify-center',
-          isMobile ? 'relative' : 'absolute inset-0 opacity-0 pointer-events-none'
-        ]"
+        class="relative w-full flex flex-col items-center justify-center lg:absolute lg:inset-0 lg:opacity-0 lg:pointer-events-none"
       >
         <!-- Pain Cards (El Problema Real) -->
         <div class="relative w-[95%] max-w-5xl mb-6">
@@ -176,20 +167,11 @@ const redPath = ref(null)
 const bluePath = ref(null)
 const crossText = ref(null)
 
-const isMobile = ref(false)
-let checkMobile
-
 let ctx
 
 onMounted(() => {
   if (!process.client) return
   gsap.registerPlugin(ScrollTrigger)
-
-  checkMobile = () => {
-    isMobile.value = window.innerWidth < 1024
-  }
-  checkMobile()
-  window.addEventListener('resize', checkMobile)
 
   ctx = gsap.context(() => {
 
@@ -314,7 +296,6 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (checkMobile) window.removeEventListener('resize', checkMobile)
   if (ctx) ctx.revert()
 })
 </script>

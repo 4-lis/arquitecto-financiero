@@ -1,10 +1,7 @@
 <template>
-  <section ref="heroContainer" class="relative w-full bg-[#050D1A]" :style="{ height: isMobile ? 'auto' : '200vh' }">
+  <section ref="heroContainer" class="relative w-full bg-[#050D1A] h-auto lg:h-[200vh]">
     <!-- Sticky / Scrollable Container -->
-    <div :class="[
-      'w-full flex flex-col items-center justify-center',
-      isMobile ? 'relative py-12 gap-12 min-h-screen' : 'sticky top-0 h-screen overflow-hidden'
-    ]">
+    <div class="relative w-full flex flex-col items-center justify-center py-12 gap-12 min-h-screen lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden lg:py-0 lg:gap-0 lg:min-h-0">
 
       <!-- 1. The Red Number Hook (Atomized Molecule) -->
       <HeroHookCounter ref="hookCounter" />
@@ -31,20 +28,11 @@ const hookCounter = ref(null)
 const heroContent = ref(null)
 const bgGlow = ref(null)
 
-const isMobile = ref(false)
-let checkMobile
-
 let ctx
 
 onMounted(() => {
   if (!process.client) return
   gsap.registerPlugin(ScrollTrigger)
-
-  checkMobile = () => {
-    isMobile.value = window.innerWidth < 1024
-  }
-  checkMobile()
-  window.addEventListener('resize', checkMobile)
 
   ctx = gsap.context(() => {
 
@@ -191,7 +179,6 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (checkMobile) window.removeEventListener('resize', checkMobile)
   if (ctx) ctx.revert()
 })
 </script>
