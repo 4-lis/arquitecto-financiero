@@ -1,5 +1,5 @@
 <template>
-  <section id="servicios" ref="bentoSection" class="py-32 px-6 lg:px-12 bg-neutral-900 transition-colors duration-1000 ease-in-out scroll-mt-20">
+  <section id="servicios" ref="bentoSection" class="py-32 px-6 lg:px-12 bg-[#0A1628] transition-colors duration-1000 ease-in-out scroll-mt-20">
     <div class="max-w-7xl mx-auto w-full">
       
       <div class="text-center mb-16">
@@ -132,16 +132,19 @@ onMounted(() => {
   ctx = gsap.context(() => {
     
     // Transition background color to match design
-    gsap.to(bentoSection.value, {
-      scrollTrigger: {
-        trigger: bentoSection.value,
-        start: 'top 40%',
-        end: 'top top',
-        scrub: true,
-      },
-      backgroundColor: '#050D1A',
-      ease: 'none'
-    })
+    gsap.fromTo(bentoSection.value, 
+      { backgroundColor: '#ffffff' },
+      {
+        scrollTrigger: {
+          trigger: bentoSection.value,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: true,
+        },
+        backgroundColor: '#0A1628',
+        ease: 'none'
+      }
+    )
 
     // Fade up Titles
     gsap.to('.bento-title', {

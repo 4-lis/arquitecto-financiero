@@ -106,10 +106,25 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
+    // Background color transition from bright blue to dark blue
+    gsap.fromTo(sectionRef.value, 
+      { backgroundColor: '#1565C0' },
+      {
+        scrollTrigger: {
+          trigger: sectionRef.value,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: true,
+        },
+        backgroundColor: '#050D1A',
+        ease: 'none'
+      }
+    )
+
     gsap.to('.faq-anim', {
       scrollTrigger: {
         trigger: sectionRef.value,
-        start: 'top 80%',
+        start: 'top 60%',
       },
       y: 0,
       opacity: 1,

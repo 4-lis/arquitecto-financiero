@@ -1,5 +1,5 @@
 <template>
-  <section ref="heroContainer" class="relative w-full bg-neutral-950" style="height: 200vh;">
+  <section ref="heroContainer" class="relative w-full bg-[#050D1A]" style="height: 200vh;">
     <!-- Sticky Container -->
     <div class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
 

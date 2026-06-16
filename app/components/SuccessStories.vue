@@ -90,8 +90,23 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
+    // Background color transition from white back to dark blue
+    gsap.fromTo(sectionRef.value, 
+      { backgroundColor: '#ffffff' },
+      {
+        scrollTrigger: {
+          trigger: sectionRef.value,
+          start: 'top 80%',
+          end: 'top 30%',
+          scrub: true,
+        },
+        backgroundColor: '#050D1A',
+        ease: 'none'
+      }
+    )
+
     gsap.to('.story-title', {
-      scrollTrigger: { trigger: sectionRef.value, start: 'top 80%' },
+      scrollTrigger: { trigger: sectionRef.value, start: 'top 60%' },
       y: 0, opacity: 1, duration: 0.9, stagger: 0.2, ease: 'power3.out'
     })
     gsap.to('.story-card', {

@@ -1,5 +1,5 @@
 <template>
-  <section id="metodo" ref="scannerContainer" class="relative w-full bg-neutral-950" style="height: 400vh;">
+  <section id="metodo" ref="scannerContainer" class="relative w-full bg-[#050D1A]" style="height: 400vh;">
     <div class="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center">
 
       <!-- 1. The Bank Statement & Scanner Phase -->

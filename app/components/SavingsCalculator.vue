@@ -1,24 +1,24 @@
 <template>
-  <section ref="sectionRef" class="py-24 lg:py-32 px-6 lg:px-12 bg-[#050D1A] relative overflow-hidden">
+  <section ref="sectionRef" class="py-24 lg:py-32 px-6 lg:px-12 bg-[#1565C0] relative overflow-hidden">
     <!-- Grid Background Pattern -->
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
     <div class="max-w-4xl mx-auto w-full relative z-10">
       <!-- Header -->
       <div class="text-center mb-16">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-light text-xs font-semibold tracking-widest uppercase mb-4 calc-anim opacity-0 translate-y-6">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-blue-100 text-xs font-semibold tracking-widest uppercase mb-4 calc-anim opacity-0 translate-y-6">
           Herramienta gratuita
         </span>
         <h2 class="calc-anim font-serif font-normal text-4xl md:text-5xl text-white mb-6 opacity-0 translate-y-6">
           Descubre cuánto puedes ahorrar en 30 segundos
         </h2>
-        <p class="calc-anim text-neutral-400 text-lg max-w-xl mx-auto font-light leading-relaxed opacity-0 translate-y-6">
+        <p class="calc-anim text-blue-100/80 text-lg max-w-xl mx-auto font-light leading-relaxed opacity-0 translate-y-6">
           Simula de forma inmediata el impacto financiero de reducir los intereses abusivos de tu crédito de vivienda.
         </p>
       </div>
 
       <!-- Calculator Box -->
-      <div class="calc-anim opacity-0 translate-y-10 bg-neutral-900/40 border border-neutral-800 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+      <div class="calc-anim opacity-0 translate-y-10 bg-[#050D1A] border border-neutral-800 rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
           <!-- Saldo Input -->
           <div class="flex flex-col gap-2">
@@ -158,6 +158,21 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
+    // Background color transition from dark blue to bright blue
+    gsap.fromTo(sectionRef.value, 
+      { backgroundColor: '#050D1A' },
+      {
+        scrollTrigger: {
+          trigger: sectionRef.value,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: true,
+        },
+        backgroundColor: '#1565C0',
+        ease: 'none'
+      }
+    )
+
     gsap.to('.calc-anim', {
       scrollTrigger: {
         trigger: sectionRef.value,

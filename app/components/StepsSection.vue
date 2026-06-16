@@ -1,12 +1,12 @@
 <template>
-  <section id="metodo-ares" ref="sectionRef" class="bg-neutral-950 py-24 lg:py-32 border-t border-neutral-900">
+  <section id="metodo-ares" ref="sectionRef" class="bg-[#050D1A] py-24 lg:py-32 border-t border-neutral-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
       <!-- Header -->
       <div ref="headerRef" class="text-center mb-16 opacity-0 translate-y-8">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-light text-xs font-semibold tracking-widest uppercase mb-4">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase mb-4">
           El Método ARES™
         </span>
-        <h2 class="font-serif text-4xl sm:text-5xl text-white">
+        <h2 class="font-serif text-4xl sm:text-5xl text-neutral-900">
           Cuatro pasos hacia tu libertad financiera
         </h2>
       </div>
@@ -16,15 +16,15 @@
         <div
           v-for="(step, index) in steps"
           :key="index"
-          class="step-card bg-mercury-panel border border-mercury-border rounded-2xl p-8 text-center group hover:border-primary/40 hover:shadow-[0_10px_30px_rgba(21,101,192,0.15)] transition-all duration-300 opacity-0 translate-y-12"
+          class="step-card bg-white border border-neutral-200 shadow-sm rounded-2xl p-8 text-center group hover:border-primary/40 hover:shadow-[0_10px_30px_rgba(21,101,192,0.15)] transition-all duration-300 opacity-0 translate-y-12"
         >
-          <div class="font-serif text-5xl md:text-6xl font-bold text-primary-light line-height-1 mb-4 select-none group-hover:scale-110 transition-transform duration-300">
+          <div class="font-serif text-5xl md:text-6xl font-bold text-primary line-height-1 mb-4 select-none group-hover:scale-110 transition-transform duration-300">
             {{ step.letter }}
           </div>
-          <h3 class="font-sans font-semibold text-lg text-white mb-3">
+          <h3 class="font-sans font-semibold text-lg text-neutral-900 mb-3">
             {{ step.title }}
           </h3>
-          <p class="text-neutral-400 text-sm leading-relaxed font-light">
+          <p class="text-neutral-600 text-sm leading-relaxed font-light">
             {{ step.description }}
           </p>
         </div>
@@ -68,6 +68,21 @@ onMounted(() => {
 
   const { gsap } = useGsap()
 
+  // Background transition
+  gsap.fromTo(sectionRef.value,
+    { backgroundColor: '#050D1A' },
+    {
+      scrollTrigger: {
+        trigger: sectionRef.value,
+        start: 'top 80%',
+        end: 'top 40%',
+        scrub: true,
+      },
+      backgroundColor: '#ffffff',
+      ease: 'none'
+    }
+  )
+
   // Animate Header
   gsap.to(headerRef.value, {
     opacity: 1,
@@ -76,7 +91,7 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: sectionRef.value,
-      start: 'top 80%',
+      start: 'top 60%',
       once: true
     }
   })
@@ -92,7 +107,7 @@ onMounted(() => {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: cardsRef.value,
-        start: 'top 80%',
+        start: 'top 60%',
         once: true
       }
     })
