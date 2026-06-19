@@ -3,12 +3,11 @@
     id="inicio"
     class="relative w-full bg-[#050D1A] overflow-hidden flex items-center min-h-screen pt-28 pb-16 lg:pt-32 lg:pb-20"
   >
-    <!-- Animated constellation / dots background -->
-    <ParticlesBackground class="opacity-60" />
+    <!-- Animated "Tech Network" background (ported from the v3 prototype) -->
+    <ParticlesBackground />
 
-    <!-- Depth gradients over the particles -->
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#050D1A]/40 via-transparent to-[#050D1A]"></div>
-    <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[700px] sm:h-[700px] bg-primary/10 blur-[100px] sm:blur-[150px] rounded-full"></div>
+    <!-- Only the bottom edge fades, so the network stays fully visible like the prototype -->
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#050D1A]"></div>
 
     <!-- Hero content -->
     <HeroContent class="relative z-10" />
