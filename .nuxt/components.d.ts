@@ -29,8 +29,10 @@ export const Hero: typeof import("../app/components/Hero.vue")['default']
 export const HeroHook: typeof import("../app/components/HeroHook.vue")['default']
 export const HeroSection: typeof import("../app/components/HeroSection.vue")['default']
 export const HeroZoom: typeof import("../app/components/HeroZoom.vue")['default']
+export const ParticlesBackground: typeof import("../app/components/ParticlesBackground.vue")['default']
 export const PressLogosSection: typeof import("../app/components/PressLogosSection.vue")['default']
 export const ProblemGraph: typeof import("../app/components/ProblemGraph.vue")['default']
+export const ProblemSection: typeof import("../app/components/ProblemSection.vue")['default']
 export const ProductsSection: typeof import("../app/components/ProductsSection.vue")['default']
 export const SavingsCalculator: typeof import("../app/components/SavingsCalculator.vue")['default']
 export const ServicesBento: typeof import("../app/components/ServicesBento.vue")['default']
@@ -83,8 +85,10 @@ export const LazyHero: LazyComponent<typeof import("../app/components/Hero.vue")
 export const LazyHeroHook: LazyComponent<typeof import("../app/components/HeroHook.vue")['default']>
 export const LazyHeroSection: LazyComponent<typeof import("../app/components/HeroSection.vue")['default']>
 export const LazyHeroZoom: LazyComponent<typeof import("../app/components/HeroZoom.vue")['default']>
+export const LazyParticlesBackground: LazyComponent<typeof import("../app/components/ParticlesBackground.vue")['default']>
 export const LazyPressLogosSection: LazyComponent<typeof import("../app/components/PressLogosSection.vue")['default']>
 export const LazyProblemGraph: LazyComponent<typeof import("../app/components/ProblemGraph.vue")['default']>
+export const LazyProblemSection: LazyComponent<typeof import("../app/components/ProblemSection.vue")['default']>
 export const LazyProductsSection: LazyComponent<typeof import("../app/components/ProductsSection.vue")['default']>
 export const LazySavingsCalculator: LazyComponent<typeof import("../app/components/SavingsCalculator.vue")['default']>
 export const LazyServicesBento: LazyComponent<typeof import("../app/components/ServicesBento.vue")['default']>

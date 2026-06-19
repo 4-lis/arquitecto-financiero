@@ -1,5 +1,5 @@
 <template>
-  <section id="diagnostico" class="relative py-24 md:py-32 bg-[#050D1A] overflow-hidden scroll-mt-24">
+  <section id="diagnostico" class="relative pt-24 md:pt-28 pb-16 md:pb-20 bg-[#050D1A] overflow-hidden scroll-mt-28">
     
     <!-- Abstract animated background for the glassmorphism -->
     <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
@@ -16,7 +16,7 @@
           El segundo mejor momento es <span class="text-primary-light italic">hoy</span>.
         </h2>
         
-        <p class="testimony-author text-neutral-400 text-lg md:text-xl font-light leading-relaxed mb-10 relative z-10 opacity-0 translate-y-8">
+        <p class="testimony-author text-neutral-400 text-lg md:text-xl font-light leading-relaxed text-justify mb-10 relative z-10 opacity-0 translate-y-8">
           Cada mes sin una estrategia es otro mes que el banco gana con tu dinero.<br class="hidden md:inline">
           Tu diagnóstico es gratuito. Tu decisión puede valer millones.
         </p>

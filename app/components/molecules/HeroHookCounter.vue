@@ -15,7 +15,7 @@
     </div>
 
     <div 
-      class="counter-number text-6xl md:text-8xl lg:text-[8rem] font-bold text-red-500 drop-shadow-[0_0_40px_rgba(239,68,68,0.8)] tracking-tighter"
+      class="counter-number text-4xl sm:text-6xl md:text-8xl lg:text-[8rem] font-bold text-red-500 drop-shadow-[0_0_40px_rgba(239,68,68,0.8)] tracking-tighter leading-none text-center px-4 max-w-full"
       style="transform-origin: center center;"
     >
       $ <span class="counter-text">{{ formattedValue }}</span>

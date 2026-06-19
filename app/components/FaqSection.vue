@@ -73,14 +73,6 @@ const faqs = [
     answer: 'Las hipotecas en UVR son precisamente las que más se benefician. El Método ARES™ está diseñado para compensar el aumento del saldo con abonos estratégicos a capital.',
   },
   {
-    question: '¿Trabajan con clientes fuera de Bogotá?',
-    answer: 'Sí, trabajamos 100% virtual con clientes en todo Colombia y en el exterior con deudas en pesos colombianos.',
-  },
-  {
-    question: '¿Qué diferencia a El Arquitecto Financiero de un banco?',
-    answer: 'Los bancos tienen incentivo en que tu deuda dure más tiempo. Nosotros solo ganamos cuando tú ganas: ahorras intereses, recuperas años y tomas mejores decisiones financieras.',
-  },
-  {
     question: '¿Cómo es la primera sesión?',
     answer: 'Es un diagnóstico financiero gratuito de 30-45 minutos donde analizamos tu situación, identificamos oportunidades y te presentamos las opciones disponibles. Sin compromisos.',
   },
@@ -110,20 +102,7 @@ onMounted(() => {
 
     // Desktop
     mm.add("(min-width: 1024px)", () => {
-      // Background color transition from bright blue to dark blue
-      gsap.fromTo(sectionRef.value, 
-        { backgroundColor: '#1565C0' },
-        {
-          scrollTrigger: {
-            trigger: sectionRef.value,
-            start: 'top 80%',
-            end: 'top 40%',
-            scrub: true,
-          },
-          backgroundColor: '#050D1A',
-          ease: 'none'
-        }
-      )
+      gsap.set(sectionRef.value, { backgroundColor: '#050D1A' })
 
       gsap.to('.faq-anim', {
         scrollTrigger: {

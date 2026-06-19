@@ -25,6 +25,18 @@
   *, *::before, *::after {
     box-sizing: border-box;
   }
+
+  /* Belt-and-suspenders: stop any decorative/oversized element from creating
+     a horizontal scroll on small screens. Scoped to mobile so it can't turn
+     <html> into a scroll container and break the lg: position:sticky pinning. */
+  @media (max-width: 1023px) {
+    html { overflow-x: hidden; }
+  }
+
+  /* Media should never force the layout wider than its column on mobile */
+  img, svg, video, canvas {
+    max-width: 100%;
+  }
 }
 
 @layer components {

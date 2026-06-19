@@ -8,7 +8,7 @@
           <span>Solo 8 cupos de diagnóstico gratuito disponibles este mes</span>
         </span>
         <span class="hidden sm:inline">—</span>
-        <a href="#contacto" class="underline cursor-pointer hover:text-white/80 transition-colors">Reserva el tuyo ahora</a>
+        <a href="#diagnostico" class="underline cursor-pointer hover:text-white/80 transition-colors">Reserva el tuyo ahora</a>
       </span>
       <button @click="isAnnouncementOpen = false" class="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 sm:p-1 hover:bg-white/20 rounded-full transition-colors" aria-label="Cerrar anuncio">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -59,7 +59,7 @@
 
         <!-- CTA -->
         <a
-          href="#contacto"
+          href="#diagnostico"
           class="relative z-10 hidden sm:inline-flex items-center ml-2 px-5 py-2 text-sm font-semibold bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 hover:scale-105 active:scale-95 shadow-glow-primary hover:shadow-glow-primary-lg"
         >
           Diagnóstico
@@ -108,7 +108,7 @@
             </a>
 
             <a
-              href="#contacto"
+              href="#diagnostico"
               class="relative z-10 mt-1 w-full py-3.5 bg-primary text-white text-center font-semibold rounded-2xl shadow-glow-primary"
               @click="isMobileMenuOpen = false"
             >
@@ -131,10 +131,11 @@ const isAnnouncementOpen = ref(true)
 
 // Flat anchor links to the real sections on the page (read order)
 const navItems = [
-  { label: 'El Método', href: '#metodo' },
+  { label: 'El Problema', href: '#problema' },
+  { label: 'El Método', href: '#metodo-ares' },
   { label: 'Servicios', href: '#servicios' },
   { label: 'Rafael', href: '#rafael' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Contacto', href: '#diagnostico' },
 ]
 
 function handleScroll() {

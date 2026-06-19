@@ -29,8 +29,10 @@ interface _GlobalComponents {
   HeroHook: typeof import("../../app/components/HeroHook.vue")['default']
   HeroSection: typeof import("../../app/components/HeroSection.vue")['default']
   HeroZoom: typeof import("../../app/components/HeroZoom.vue")['default']
+  ParticlesBackground: typeof import("../../app/components/ParticlesBackground.vue")['default']
   PressLogosSection: typeof import("../../app/components/PressLogosSection.vue")['default']
   ProblemGraph: typeof import("../../app/components/ProblemGraph.vue")['default']
+  ProblemSection: typeof import("../../app/components/ProblemSection.vue")['default']
   ProductsSection: typeof import("../../app/components/ProductsSection.vue")['default']
   SavingsCalculator: typeof import("../../app/components/SavingsCalculator.vue")['default']
   ServicesBento: typeof import("../../app/components/ServicesBento.vue")['default']
@@ -83,8 +85,10 @@ interface _GlobalComponents {
   LazyHeroHook: LazyComponent<typeof import("../../app/components/HeroHook.vue")['default']>
   LazyHeroSection: LazyComponent<typeof import("../../app/components/HeroSection.vue")['default']>
   LazyHeroZoom: LazyComponent<typeof import("../../app/components/HeroZoom.vue")['default']>
+  LazyParticlesBackground: LazyComponent<typeof import("../../app/components/ParticlesBackground.vue")['default']>
   LazyPressLogosSection: LazyComponent<typeof import("../../app/components/PressLogosSection.vue")['default']>
   LazyProblemGraph: LazyComponent<typeof import("../../app/components/ProblemGraph.vue")['default']>
+  LazyProblemSection: LazyComponent<typeof import("../../app/components/ProblemSection.vue")['default']>
   LazyProductsSection: LazyComponent<typeof import("../../app/components/ProductsSection.vue")['default']>
   LazySavingsCalculator: LazyComponent<typeof import("../../app/components/SavingsCalculator.vue")['default']>
   LazyServicesBento: LazyComponent<typeof import("../../app/components/ServicesBento.vue")['default']>
